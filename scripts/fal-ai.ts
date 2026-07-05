@@ -268,15 +268,19 @@ export async function generateBlogImagePack(
   return { hero, og, sections: sectionImages }
 }
 
-/* ─── Test / CLI ─── */
+/* ─── CLI Mode (used by CMS API) ─── */
 async function main() {
   const testPrompt = process.argv[2] || 'Modern tech blog header for AI development, dark theme purple cyan gradient'
   const filename = process.argv[3] || 'test-fal'
+  const width = parseInt(process.argv[4] || '1024', 10)
+  const height = parseInt(process.argv[5] || '576', 10)
 
-  console.log('🧪 fal.ai Image Generator Test\n')
+  console.log('🧪 fal.ai Image Generator\n')
   console.log('Prompt:', testPrompt)
+  console.log('Filename:', filename)
+  console.log('Size:', `${width}x${height}`)
 
-  const result = await falGenerateImage(testPrompt, filename)
+  const result = await falGenerateImage(testPrompt, filename, { width, height })
 
   if (result) {
     console.log('\n✅ Success!')

@@ -26,26 +26,26 @@ export default function BlogPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
-            <span className="inline-block px-4 py-1 rounded-full bg-purple-600/20 text-purple-400 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-purple-600/20 text-purple-400 text-sm font-medium mb-4 border border-purple-500/20">
               🤖 Ultra Content Machine — AI Powered
             </span>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-6">
-              הבלוג שלי על <span className="gradient-text">הטכנולוגיה</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6">
+              הבלוג שלי על <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400">הטכנולוגיה</span>
             </h1>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               מדריכים אולטרה-מקיפים על הטרנדים החמים ביותר ב-GitHub, AI, ופיתוח — נכתבים אוטומטית מדי יום
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm text-gray-500">
-              <span className="flex items-center gap-1">
-                <BookOpen className="w-4 h-4" />
+            <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm text-gray-500">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                <BookOpen className="w-4 h-4 text-cyan-400" />
                 {posts.length} מדריכים
               </span>
-              <span className="flex items-center gap-1">
-                <ImageIcon className="w-4 h-4" />
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                <ImageIcon className="w-4 h-4 text-purple-400" />
                 AI Images (FLUX)
               </span>
-              <span className="flex items-center gap-1">
-                <Star className="w-4 h-4" />
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                <Star className="w-4 h-4 text-yellow-400" />
                 GitHub Trending
               </span>
             </div>
@@ -86,7 +86,7 @@ export default function BlogPage() {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <Link href={`/blog/${post.slug}/`}>
-                    <div className="relative h-full glass rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-2"
+                    <div className="relative h-full glass rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-purple-500/10"
                     >
                       {/* Image Header */}
                       <div className={`relative h-52 md:h-64 overflow-hidden ${

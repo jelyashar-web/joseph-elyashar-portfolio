@@ -12,6 +12,11 @@ services:
       - "3003:3003"
     env_file:
       - .env.local
+    volumes:
+      # Mount the live dist directory so new builds reflect immediately
+      - ./dist:/usr/share/nginx/html:ro
+      # Mount logs for external access
+      - ./logs:/var/log/nginx:rw
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:3003/"]
       interval: 30s

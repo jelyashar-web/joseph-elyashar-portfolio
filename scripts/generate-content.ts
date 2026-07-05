@@ -224,9 +224,16 @@ async function fetchTrendingRepos(): Promise<GitHubRepo[]> {
 
 function buildContentPrompt(repo: GitHubRepo): string {
   const { name, description, stargazers_count, language, topics, html_url } = repo
-  return `אתה כותב טכנולוגי בכיר ברמה של Smashing Magazine + CSS-Tricks.
+  return `אתה כותב טכנולוגי בכיר ברמה של Smashing Magazine + CSS-Tricks + TechCrunch.
 
 כתוב מדריך מקיף ב-HTML בלבד (אין Markdown) על "${name}" — ${stargazers_count.toLocaleString()} כוכבים ב-GitHub.
+
+חשוב מאוד: הכותרת הראשית (h2) חייבת להיות מפתה, קליקבילית, ויוצרת סקרנות. אל תכתוב כותרת יבשה. דוגמאות טובות:
+- "למה Flutter השתלט על 176,258 פרויקטים? הסוד שהמפתחים לא מספרים לך"
+- "React 19 נחשף: התכונה הזו תחסוך לך 40% זמן פיתוח"
+- "Docker כבר לא רק containers — מה שקורה עכשיו יפתיע אותך"
+
+הימנע מכותרות יבשות כמו "מדריך מקיף" או "התקנה שלב אחר שלב" בכותרת הראשית.
 
 מידע: ${description || 'כלי פופולרי'} | שפה: ${language || 'Multi'} | נושאים: ${topics.join(', ')} | לינק: ${html_url}
 
@@ -408,7 +415,7 @@ async function generateSinglePost(repo: GitHubRepo, index: number, total: number
     // 1. Generate content via Ollama Pro
     log('INFO', `[${index + 1}/${total}] Generating content via AI...`)
     let rawHtml = ''
-    let title = `${repo.name}: המדריך המקיף להתקנה ושימוש מקצועי`
+    let title = `למה ${repo.name} השתלט על ${repo.stargazers_count.toLocaleString()} פרויקטים? המדריך שישנה את הדרך שאתה כותב קוד`
     let excerpt = `מדריך מקיף ומפורט על ${repo.name} — ${repo.description || 'כלי פופולרי בקוד פתוח'}. כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.`
 
     try {

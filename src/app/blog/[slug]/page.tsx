@@ -119,7 +119,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               )}
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">{post.title}</h1>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400">
+                {post.title}
+              </span>
+            </h1>
 
             <div className="flex flex-wrap items-center gap-6 text-gray-400 mb-8">
               <span className="flex items-center gap-2">
@@ -154,8 +158,24 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
         {/* Progress bar */}
         <div className="sticky top-0 z-40 h-1 bg-gray-900">
-          <div className="h-full bg-gradient-to-r from-purple-500 to-cyan-500 w-0" id="reading-progress" />
+          <div className="h-full bg-gradient-to-r from-purple-500 to-cyan-500 w-0 transition-all duration-100" id="reading-progress" />
         </div>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              const progressBar = document.getElementById('reading-progress');
+              if (!progressBar) return;
+              function updateProgress() {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+              }
+              window.addEventListener('scroll', updateProgress, { passive: true });
+              updateProgress();
+            })();
+          `
+        }} />
 
         {/* Content */}
         <section className="relative pb-24">

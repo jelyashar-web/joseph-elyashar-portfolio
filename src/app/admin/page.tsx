@@ -21,6 +21,15 @@ import {
   Loader2,
   Search,
   RefreshCw,
+  Sparkles,
+  Image,
+  MessageSquare,
+  Hammer,
+  Play,
+  Cpu,
+  Eye,
+  EyeOff,
+  Terminal,
 } from 'lucide-react'
 
 interface Post {
@@ -42,7 +51,7 @@ interface TopicRecord {
   slug: string
 }
 
-type Tab = 'posts' | 'topics' | 'settings'
+type Tab = 'posts' | 'topics' | 'settings' | 'ai' | 'images' | 'comments' | 'deploy'
 
 const API_BASE = process.env.NEXT_PUBLIC_AGENT_URL?.replace('/chat', '') || 'http://localhost:3004'
 
@@ -64,6 +73,32 @@ export default function AdminPage() {
   const [isCreating, setIsCreating] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
+
+  // AI Generator state
+  const [generateCount, setGenerateCount] = useState(1)
+  const [pipelineStatus, setPipelineStatus] = useState<'idle' | 'running'>('idle')
+  const [generationLog, setGenerationLog] = useState<string[]>([])
+
+  // Image Generator state
+  const [imagePrompt, setImagePrompt] = useState('')
+  const [imageStyle, setImageStyle] = useState('cinematic')
+  const [imageWidth, setImageWidth] = useState(1024)
+  const [imageHeight, setImageHeight] = useState(576)
+  const [generatedImages, setGeneratedImages] = useState<Array<{ url: string; prompt: string; date: string }>>([])
+  const [generatingImage, setGeneratingImage] = useState(false)
+
+  // Comments state
+  const [allComments, setAllComments] = useState<Array<any>>([])
+
+  // Build & Deploy state
+  const [buildOutput, setBuildOutput] = useState<string[]>([])
+  const [building, setBuilding] = useState(false)
+  const [lastBuild, setLastBuild] = useState<string | null>(null)
+
+  // Logs state
+  const [logFiles, setLogFiles] = useState<Array<{ name: string; size: number; modified: string }>>([])
+  const [activeLog, setActiveLog] = useState<string | null>(null)
+  const [logContent, setLogContent] = useState<string[]>([])
 
   const showToast = useCallback((type: 'success' | 'error', message: string) => {
     setToast({ type, message })
@@ -126,12 +161,66 @@ export default function AdminPage() {
     }
   }, [password, authed])
 
+  const loadPipelineStatus = useCallback(async () => {
+    try {
+      const res = await apiFetch('/admin/pipeline/status')
+      const data = await res.json()
+      setPipelineStatus(data.running ? 'running' : 'idle')
+    } catch {
+      // silently fail
+    }
+  }, [password, authed])
+
+  const loadLogFiles = useCallback(async () => {
+    try {
+      const res = await apiFetch('/admin/logs')
+      const data = await res.json()
+      setLogFiles(data.logs || [])
+    } catch {
+      showToast('error', 'שגיאה בטעינת לוגים')
+    }
+  }, [password, authed])
+
+  const loadLogContent = useCallback(async (filename: string) => {
+    try {
+      const res = await apiFetch(`/admin/logs/${filename}`)
+      const data = await res.json()
+      setLogContent(data.lines || [])
+      setActiveLog(filename)
+    } catch {
+      showToast('error', 'שגיאה בטעינת קובץ לוג')
+    }
+  }, [password, authed])
+
+  const loadAllComments = useCallback(async () => {
+    setLoading(true)
+    try {
+      const res = await apiFetch('/admin/comments')
+      const data = await res.json()
+      setAllComments(data.comments || [])
+    } catch {
+      showToast('error', 'שגיאה בטעינת תגובות')
+    } finally {
+      setLoading(false)
+    }
+  }, [password, authed])
+
   useEffect(() => {
     if (!authed) return
     if (tab === 'posts') loadPosts()
     if (tab === 'topics') loadTopics()
     if (tab === 'settings') loadSettings()
-  }, [tab, authed, loadPosts, loadTopics, loadSettings])
+    if (tab === 'ai') { loadPipelineStatus(); loadLogFiles() }
+    if (tab === 'comments') loadAllComments()
+    if (tab === 'deploy') { loadPipelineStatus(); setLastBuild(localStorage.getItem('lastBuildTime')) }
+  }, [tab, authed, loadPosts, loadTopics, loadSettings, loadPipelineStatus, loadLogFiles, loadAllComments])
+
+  // Poll pipeline status every 5 seconds when on AI tab
+  useEffect(() => {
+    if (!authed || tab !== 'ai') return
+    const interval = setInterval(loadPipelineStatus, 5000)
+    return () => clearInterval(interval)
+  }, [authed, tab, loadPipelineStatus])
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
@@ -234,6 +323,98 @@ export default function AdminPage() {
     }
   }
 
+  // ─── AI Generator Handlers ───
+  async function handleGeneratePosts() {
+    if (pipelineStatus === 'running') {
+      showToast('error', 'המערכת כבר רצה כרגע')
+      return
+    }
+    setGenerationLog(prev => [...prev, `[${new Date().toLocaleTimeString('he-IL')}] מתחיל יצירת ${generateCount} פוסטים...`])
+    try {
+      const res = await apiFetch('/admin/generate-content', {
+        method: 'POST',
+        body: JSON.stringify({ count: generateCount }),
+      })
+      const data = await res.json()
+      if (res.ok || res.status === 202) {
+        showToast('success', data.message || 'הייצור התחיל')
+        setPipelineStatus('running')
+        setGenerationLog(prev => [...prev, `[${new Date().toLocaleTimeString('he-IL')}] בקשה נשלחה — ${data.logFile}`])
+      } else {
+        showToast('error', data.error || 'שגיאה בהתחלת ייצור')
+      }
+    } catch {
+      showToast('error', 'שגיאה בהתחלת ייצור')
+    }
+  }
+
+  async function handleGenerateImage() {
+    if (!imagePrompt.trim()) {
+      showToast('error', 'הזן prompt לתמונה')
+      return
+    }
+    setGeneratingImage(true)
+    try {
+      const res = await apiFetch('/admin/generate-image', {
+        method: 'POST',
+        body: JSON.stringify({ prompt: imagePrompt, width: imageWidth, height: imageHeight }),
+      })
+      const data = await res.json()
+      if (res.ok) {
+        showToast('success', 'תמונה נוצרה בהצלחה')
+        setGeneratedImages(prev => [{ url: data.imageUrl, prompt: imagePrompt, date: new Date().toISOString() }, ...prev])
+        setImagePrompt('')
+      } else {
+        showToast('error', data.error || 'שגיאה ביצירת תמונה')
+      }
+    } catch {
+      showToast('error', 'שגיאה ביצירת תמונה')
+    } finally {
+      setGeneratingImage(false)
+    }
+  }
+
+  async function handleBuild() {
+    if (pipelineStatus === 'running') {
+      showToast('error', 'המערכת כבר רצה כרגע — המתן לסיום')
+      return
+    }
+    setBuilding(true)
+    setBuildOutput(prev => [...prev, `[${new Date().toLocaleTimeString('he-IL')}] מתחיל בניית האתר...`])
+    try {
+      const res = await apiFetch('/admin/build', { method: 'POST', body: JSON.stringify({}) })
+      const data = await res.json()
+      if (res.ok || res.status === 202) {
+        showToast('success', data.message || 'הבנייה התחילה')
+        setPipelineStatus('running')
+        setBuildOutput(prev => [...prev, `[${new Date().toLocaleTimeString('he-IL')}] בקשת בנייה נשלחה`])
+        localStorage.setItem('lastBuildTime', new Date().toISOString())
+        setLastBuild(new Date().toISOString())
+      } else {
+        showToast('error', data.error || 'שגיאה בהתחלת בנייה')
+      }
+    } catch {
+      showToast('error', 'שגיאה בהתחלת בנייה')
+    } finally {
+      setBuilding(false)
+    }
+  }
+
+  async function handleDeleteComment(slug: string, commentId: string) {
+    if (!confirm('האם אתה בטוח שברצונך למחוק תגובה זו?')) return
+    try {
+      const res = await apiFetch(`/admin/comments/${slug}/${commentId}`, { method: 'DELETE' })
+      if (res.ok) {
+        showToast('success', 'תגובה נמחקה')
+        loadAllComments()
+      } else {
+        showToast('error', 'שגיאה במחיקת תגובה')
+      }
+    } catch {
+      showToast('error', 'שגיאה במחיקת תגובה')
+    }
+  }
+
   const filteredPosts = posts.filter(p =>
     p.title?.includes(searchQuery) ||
     p.slug?.includes(searchQuery) ||
@@ -325,10 +506,14 @@ export default function AdminPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Tabs */}
-        <div className={`flex gap-2 mb-6 border-b ${isDark ? 'border-white/10' : 'border-gray-200'} pb-2`}>
+        <div className={`flex gap-2 mb-6 border-b ${isDark ? 'border-white/10' : 'border-gray-200'} pb-2 flex-wrap`}>
           {[
             { id: 'posts' as Tab, label: 'פוסטים', icon: FileText },
             { id: 'topics' as Tab, label: 'נושאים', icon: Tags },
+            { id: 'ai' as Tab, label: 'AI Generator', icon: Sparkles },
+            { id: 'images' as Tab, label: 'תמונות', icon: Image },
+            { id: 'comments' as Tab, label: 'תגובות', icon: MessageSquare },
+            { id: 'deploy' as Tab, label: 'בנייה', icon: Hammer },
             { id: 'settings' as Tab, label: 'הגדרות', icon: Settings },
           ].map(({ id, label, icon: Icon }) => (
             <button
@@ -369,8 +554,15 @@ export default function AdminPage() {
                   <RefreshCw className={`w-4 h-4 text-gray-500 ${loading ? 'animate-spin' : ''}`} />
                 </button>
                 <button
-                  onClick={() => { setIsCreating(true); setEditingPost(null) }}
+                  onClick={() => { setTab('ai') }}
                   className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  צור עם AI
+                </button>
+                <button
+                  onClick={() => { setIsCreating(true); setEditingPost(null) }}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl border border-purple-500/30 text-purple-400 text-sm font-medium hover:bg-purple-500/10 transition-colors"
                 >
                   <Plus className="w-4 h-4" />
                   פוסט חדש
@@ -519,12 +711,301 @@ export default function AdminPage() {
           </div>
         )}
 
+        {/* AI Generator Tab */}
+        {tab === 'ai' && (
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className={`text-lg font-bold ${textMain}`}>מחולל תוכן AI</h2>
+              <div className="flex items-center gap-2">
+                <div className={`w-3 h-3 rounded-full ${pipelineStatus === 'running' ? 'bg-yellow-400 animate-pulse' : 'bg-green-500'}`} />
+                <span className="text-sm text-gray-500">{pipelineStatus === 'running' ? 'רץ כרגע...' : 'מוכן'}</span>
+              </div>
+            </div>
+
+            <div className={`border rounded-2xl p-6 ${cardBg} space-y-4`}>
+              <div className="flex items-center gap-4">
+                <label className="text-sm font-medium text-gray-500">כמות פוסטים:</label>
+                <select
+                  value={generateCount}
+                  onChange={e => setGenerateCount(parseInt(e.target.value))}
+                  className={`rounded-xl px-3 py-2 border text-sm ${inputBg}`}
+                >
+                  {[1, 2, 3, 4, 5].map(n => (
+                    <option key={n} value={n}>{n}</option>
+                  ))}
+                </select>
+              </div>
+
+              <button
+                onClick={handleGeneratePosts}
+                disabled={pipelineStatus === 'running'}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
+              >
+                {pipelineStatus === 'running' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
+                צור פוסטים
+              </button>
+
+              {generationLog.length > 0 && (
+                <div className={`mt-4 p-4 rounded-xl border font-mono text-xs overflow-y-auto max-h-48 ${isDark ? 'bg-black border-gray-800 text-gray-300' : 'bg-gray-50 border-gray-200 text-gray-600'}`}>
+                  {generationLog.map((line, i) => (
+                    <div key={i}>{line}</div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Duplicate Prevention Info */}
+            <div className={`border rounded-2xl p-6 ${cardBg}`}>
+              <div className="flex items-center gap-2 mb-4">
+                <Tags className="w-5 h-5 text-purple-400" />
+                <h3 className={`text-sm font-bold ${textMain}`}>נושאים שנכתבו כבר (מניעת כפילויות)</h3>
+              </div>
+              <p className="text-xs text-gray-500 mb-3">
+                המערכת לא תיצור פוסט על נושאים שכבר קיימים ברשימה זו. ניתן למחוק נושאים מהטאב "נושאים" כדי לאפשר יצירה מחדש.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {topics.slice(0, 20).map(t => (
+                  <span key={t.slug} className={`px-2 py-1 rounded-full text-xs ${isDark ? 'bg-white/10 text-gray-400' : 'bg-gray-100 text-gray-600'}`}>
+                    {t.topics.slice(0, 3).join(', ')}
+                  </span>
+                ))}
+                {topics.length > 20 && (
+                  <span className="text-xs text-gray-500">+{topics.length - 20} נוספים...</span>
+                )}
+                {topics.length === 0 && (
+                  <span className="text-xs text-gray-500">אין נושאים עדיין — המערכת תיצור מהכל</span>
+                )}
+              </div>
+            </div>
+
+            <h3 className={`text-md font-bold ${textMain}`}>לוגים אחרונים</h3>
+            <div className={`border rounded-2xl overflow-hidden ${cardBg}`}>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className={`border-b ${isDark ? 'border-white/10' : 'border-gray-200'} ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">קובץ</th>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">גודל</th>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">עודכן</th>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">פעולות</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {logFiles.map(f => (
+                      <tr key={f.name} className={`border-b ${isDark ? 'border-white/5' : 'border-gray-100'} ${hoverBg}`}>
+                        <td className="px-4 py-3 font-mono text-xs">{f.name}</td>
+                        <td className="px-4 py-3 text-gray-500">{(f.size / 1024).toFixed(1)} KB</td>
+                        <td className="px-4 py-3 text-gray-500">{new Date(f.modified).toLocaleString('he-IL')}</td>
+                        <td className="px-4 py-3">
+                          <button
+                            onClick={() => loadLogContent(f.name)}
+                            className="text-cyan-400 hover:text-cyan-300 text-sm"
+                          >
+                            צפה
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                    {logFiles.length === 0 && (
+                      <tr><td colSpan={4} className="px-4 py-8 text-center text-gray-500">אין לוגים</td></tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {activeLog && logContent.length > 0 && (
+              <div className={`mt-4 p-4 rounded-xl border font-mono text-xs overflow-y-auto max-h-96 ${isDark ? 'bg-black border-gray-800 text-gray-300' : 'bg-gray-50 border-gray-200 text-gray-600'}`}>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-bold">{activeLog}</span>
+                  <button onClick={() => setActiveLog(null)} className="text-gray-500 hover:text-red-400"><X className="w-4 h-4" /></button>
+                </div>
+                {logContent.map((line, i) => (
+                  <div key={i} className="whitespace-pre-wrap">{line}</div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Image Generator Tab */}
+        {tab === 'images' && (
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className={`text-lg font-bold ${textMain}`}>מחולל תמונות AI</h2>
+            </div>
+
+            <div className={`border rounded-2xl p-6 ${cardBg} space-y-4`}>
+              <div>
+                <label className="block text-sm font-medium text-gray-500 mb-1">Prompt (תיאור התמונה)</label>
+                <textarea
+                  value={imagePrompt}
+                  onChange={e => setImagePrompt(e.target.value)}
+                  rows={3}
+                  placeholder="תאר את התמונה שברצונך ליצור..."
+                  className={`w-full rounded-xl px-4 py-3 border focus:outline-none focus:ring-2 focus:ring-purple-500 ${inputBg}`}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-500 mb-1">רוחב</label>
+                  <input
+                    type="number"
+                    value={imageWidth}
+                    onChange={e => setImageWidth(parseInt(e.target.value) || 1024)}
+                    className={`w-full rounded-xl px-4 py-2 border ${inputBg}`}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-500 mb-1">גובה</label>
+                  <input
+                    type="number"
+                    value={imageHeight}
+                    onChange={e => setImageHeight(parseInt(e.target.value) || 576)}
+                    className={`w-full rounded-xl px-4 py-2 border ${inputBg}`}
+                  />
+                </div>
+                <div className="col-span-2">
+                  <label className="block text-sm font-medium text-gray-500 mb-1">סגנון</label>
+                  <select
+                    value={imageStyle}
+                    onChange={e => setImageStyle(e.target.value)}
+                    className={`w-full rounded-xl px-4 py-2 border ${inputBg}`}
+                  >
+                    {['cinematic', 'modern', 'dark', 'minimal', 'colorful', 'enterprise'].map(s => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <button
+                onClick={handleGenerateImage}
+                disabled={generatingImage || !imagePrompt.trim()}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
+              >
+                {generatingImage ? <Loader2 className="w-4 h-4 animate-spin" /> : <Image className="w-4 h-4" />}
+                צור תמונה
+              </button>
+            </div>
+
+            {generatedImages.length > 0 && (
+              <>
+                <h3 className={`text-md font-bold ${textMain}`}>תמונות שנוצרו</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {generatedImages.map((img, i) => (
+                    <div key={i} className={`border rounded-2xl overflow-hidden ${cardBg}`}>
+                      <img src={img.url} alt={img.prompt} className="w-full h-48 object-cover" />
+                      <div className="p-3">
+                        <p className="text-xs text-gray-500 line-clamp-2">{img.prompt}</p>
+                        <p className="text-xs text-gray-400 mt-1">{new Date(img.date).toLocaleString('he-IL')}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Comments Tab */}
+        {tab === 'comments' && (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className={`text-lg font-bold ${textMain}`}>תגובות</h2>
+              <button
+                onClick={loadAllComments}
+                className={`p-2 rounded-xl border ${cardBg} ${hoverBg}`}
+              >
+                <RefreshCw className={`w-4 h-4 text-gray-500 ${loading ? 'animate-spin' : ''}`} />
+              </button>
+            </div>
+            <div className={`border rounded-2xl overflow-hidden ${cardBg}`}>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className={`border-b ${isDark ? 'border-white/10' : 'border-gray-200'} ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">פוסט</th>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">מחבר</th>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">תוכן</th>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">תאריך</th>
+                      <th className="text-right px-4 py-3 font-medium text-gray-500">פעולות</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {allComments.map(c => (
+                      <tr key={c.id} className={`border-b ${isDark ? 'border-white/5' : 'border-gray-100'} ${hoverBg}`}>
+                        <td className="px-4 py-3 text-xs text-gray-500">{c.slug}</td>
+                        <td className="px-4 py-3">{c.name}</td>
+                        <td className="px-4 py-3 text-gray-500 max-w-xs truncate">{c.content}</td>
+                        <td className="px-4 py-3 text-gray-500 text-xs">{new Date(c.timestamp).toLocaleString('he-IL')}</td>
+                        <td className="px-4 py-3">
+                          <button
+                            onClick={() => handleDeleteComment(c.slug, c.id)}
+                            className="p-1.5 rounded-lg text-red-400 hover:bg-red-500/10 transition-colors"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                    {allComments.length === 0 && (
+                      <tr><td colSpan={5} className="px-4 py-8 text-center text-gray-500">{loading ? <Loader2 className="w-5 h-5 animate-spin mx-auto" /> : 'אין תגובות'}</td></tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Build & Deploy Tab */}
+        {tab === 'deploy' && (
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className={`text-lg font-bold ${textMain}`}>בנייה &amp; פריסה</h2>
+              <div className="flex items-center gap-2">
+                <div className={`w-3 h-3 rounded-full ${pipelineStatus === 'running' ? 'bg-yellow-400 animate-pulse' : 'bg-green-500'}`} />
+                <span className="text-sm text-gray-500">{pipelineStatus === 'running' ? 'עובד...' : 'מוכן'}</span>
+              </div>
+            </div>
+
+            <div className={`border rounded-2xl p-6 ${cardBg} space-y-4`}>
+              {lastBuild && (
+                <p className="text-sm text-gray-500">
+                  בנייה אחרונה: {new Date(lastBuild).toLocaleString('he-IL')}
+                </p>
+              )}
+
+              <button
+                onClick={handleBuild}
+                disabled={building || pipelineStatus === 'running'}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
+              >
+                {building ? <Loader2 className="w-4 h-4 animate-spin" /> : <Hammer className="w-4 h-4" />}
+                בנה אתר מחדש
+              </button>
+
+              {buildOutput.length > 0 && (
+                <div className={`mt-4 p-4 rounded-xl border font-mono text-xs overflow-y-auto max-h-48 ${isDark ? 'bg-black border-gray-800 text-gray-300' : 'bg-gray-50 border-gray-200 text-gray-600'}`}>
+                  {buildOutput.map((line, i) => (
+                    <div key={i}>{line}</div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Settings Tab */}
         {tab === 'settings' && (
-          <div className="space-y-4 max-w-3xl">
-            <h2 className={`text-lg font-bold ${textMain}`}>הגדרות סוכן מכירות</h2>
+          <div className="space-y-6 max-w-3xl">
+            <h2 className={`text-lg font-bold ${textMain}`}>הגדרות מערכת</h2>
+
+            {/* Sales Agent Settings */}
             <div className={`border rounded-2xl p-6 ${cardBg}`}>
-              <label className="block text-sm font-medium text-gray-500 mb-2">System Prompt</label>
+              <h3 className="text-sm font-bold text-gray-500 mb-4">סוכן מכירות (System Prompt)</h3>
               <textarea
                 value={settings.systemPrompt}
                 onChange={e => setSettings(s => ({ ...s, systemPrompt: e.target.value }))}
@@ -540,6 +1021,33 @@ export default function AdminPage() {
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                   שמור הגדרות
                 </button>
+              </div>
+            </div>
+
+            {/* Pipeline Config (read-only display for now) */}
+            <div className={`border rounded-2xl p-6 ${cardBg}`}>
+              <h3 className="text-sm font-bold text-gray-500 mb-4">תצורת Pipeline</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-500">פוסטים ליום:</span>
+                  <span className={textMain}>{process.env.POSTS_PER_DAY || '3'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">מודל AI:</span>
+                  <span className={textMain}>{process.env.OLLAMA_MODEL || 'kimi-k2.5'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">model תמונות:</span>
+                  <span className={textMain}>fal-ai/flux-pro/v1.1</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">API Server:</span>
+                  <span className={textMain}>http://localhost:3004</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Static Site:</span>
+                  <span className={textMain}>http://localhost:3000</span>
+                </div>
               </div>
             </div>
           </div>

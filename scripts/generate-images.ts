@@ -25,12 +25,12 @@ export interface SectionImageConfig {
 }
 
 const STYLE_ENHANCEMENTS: Record<string, string> = {
-  modern: 'dark background, purple to cyan gradient accents, floating geometric shapes, clean minimalist digital art, no text, no watermarks',
-  minimal: 'white background, simple geometric shapes, monochrome with cyan accent, elegant and clean, no text',
-  colorful: 'vibrant gradient, dynamic composition, bold colors, energetic and eye-catching, no text',
-  dark: 'dark theme, neon cyan and purple, cyberpunk aesthetic, high contrast, futuristic, no text',
-  enterprise: 'dark navy background, subtle grid pattern, professional tech aesthetic, clean lines, no text, premium feel',
-  cinematic: 'cinematic lighting, premium modern design, ultra detailed, realistic, clean composition, no text, suitable for tech startup magazine',
+  modern: 'dark void background, electric purple (#8B5CF6) to neon cyan (#06B6D4) gradient, floating glass-morphism cards, clean minimalist digital art, 8K render, no text, no watermarks, Unreal Engine 5 quality',
+  minimal: 'pure black background, single glowing geometric shape, monochrome with subtle cyan rim light, Japanese minimalist aesthetic, no text, infinite depth',
+  colorful: 'vibrant holographic gradient, iridescent surfaces, dynamic particle composition, bold electric colors, energetic and eye-catching, no text, octane render',
+  dark: 'deep space black, neon cyan and electric purple glow, cyberpunk meets Apple design, high contrast volumetric lighting, futuristic, no text, cinematic',
+  enterprise: 'dark obsidian background, subtle constellation grid, glass-morphism UI elements, professional tech aesthetic, clean lines, no text, premium feel, Bloomberg terminal aesthetic',
+  cinematic: 'cinematic volumetric lighting, photorealistic digital sculpture, premium editorial design, ultra detailed 8K, subtle depth of field, no text, Wired magazine cover quality',
 }
 
 function buildPrompt(base: string, style: string = 'cinematic'): string {
@@ -53,36 +53,93 @@ function pollinationsSectionFallback(basePrompt: string): string {
   return `https://image.pollinations.ai/prompt/${fallbackPrompt}?width=1024&height=576&nologo=true&seed=${Date.now()}`
 }
 
-/* ─── Per-Section Prompts (Enterprise Grade) ─── */
+/* ─── Per-Section Prompts (2026 Ultra-Modern Professional) ─── */
 const SECTION_PROMPTS: Record<string, (title: string, topic: string) => string> = {
   intro: (title, topic) =>
-    `Abstract tech visualization of ${topic}, code flowing through digital circuits, futuristic dark purple cyan gradient, modern minimalist digital art, enterprise software aesthetic`,
+    `Ultra-modern tech editorial illustration for "${topic}".
+    Abstract 3D holographic data streams, glass-morphism UI elements, floating neural network nodes.
+    Deep space black background with electric purple (#8B5CF6) to neon cyan (#06B6D4) gradient glow.
+    Cinematic volumetric lighting, photorealistic digital art, 8K quality.
+    No text, no watermarks, no UI chrome. Premium tech magazine cover aesthetic.`,
   overview: (title, topic) =>
-    `High-level architecture diagram of ${topic}, clean dark background, glowing connection lines, modern tech infographic style`,
+    `Futuristic system architecture visualization for "${topic}".
+    Isometric 3D server racks connected by luminous fiber-optic threads.
+    Dark obsidian background, subtle grid pattern, holographic floating cards with glass reflections.
+    Electric blue and magenta accent lighting. Unreal Engine 5 render quality.
+    No text, no logos. Clean enterprise tech aesthetic.`,
   prerequisites: (title, topic) =>
-    `Developer workspace setup, multiple monitors showing code editor and terminal, minimalist illustration, dark theme, professional environment`,
+    `Modern developer command center for "${topic}".
+    Curved ultrawide monitors with dark IDE themes, ambient RGB lighting, minimalist mechanical keyboard.
+    Concrete and matte black desk, plant accent, warm-cool lighting contrast.
+    Photorealistic interior photography style, shallow depth of field.
+    No visible screen text. Professional workspace aesthetic.`,
   installation: (title, topic) =>
-    `Terminal window showing installation commands, dark background with green glowing text, IDE aesthetic, command line interface, ${topic} setup`,
+    `Abstract CLI interface visualization for "${topic}" installation.
+    Holographic terminal windows floating in dark void, green-cyan command output glowing.
+    Particle effects, matrix-style data rain in background.
+    Cyberpunk aesthetic mixed with clean minimalism.
+    No readable text, just abstract glowing characters. 8K render.`,
   configuration: (title, topic) =>
-    `Settings panel and configuration files, modern dark UI, sliders and toggles, ${topic} configuration visualization`,
+    `Futuristic settings dashboard for "${topic}".
+    Glass-morphism control panels, neon toggle switches, radial dials with purple-cyan gradients.
+    Dark space background with subtle constellation pattern.
+    Apple Vision Pro style spatial UI aesthetic.
+    No text labels. Pure visual interface beauty.`,
   components: (title, topic) =>
-    `Responsive web design components, mobile tablet and desktop screens, modern UI cards with grid layout, dark theme, ${topic} interface`,
+    `Responsive device ecosystem for "${topic}".
+    iPhone 16 Pro, iPad Pro, MacBook Pro floating at dynamic angles with motion blur.
+    Screens showing abstract colorful UI patterns (not readable text).
+    Dark reflective surface, dramatic studio lighting with purple rim light.
+    Product photography style, ultra-sharp detail.`,
   usage: (title, topic) =>
-    `Code snippets floating in space, syntax highlighting glow, programming patterns visualized, abstract code art, dark background, ${topic} implementation`,
+    `Abstract code visualization for "${topic}" implementation.
+    Glowing syntax-highlighted code fragments transforming into 3D geometric structures.
+    Particles of light forming API network topology.
+    Dark void background, volumetric fog, electric purple and cyan light sources.
+    Generative art meets technical illustration. No readable code text.`,
   examples: (title, topic) =>
-    `Real-world application screenshot mockup, ${topic} in action, modern dashboard interface, dark theme`,
+    `Real-world SaaS application interface for "${topic}".
+    Modern dark dashboard with data cards, real-time charts, user avatars row.
+    Glass-morphism sidebar, gradient progress bars, notification bell.
+    Clean Figma-style UI render with subtle shadows and depth.
+    No readable text, just abstract UI shapes and charts.`,
   analytics: (title, topic) =>
-    `Analytics dashboard with charts and graphs, real-time monitoring metrics, dark theme UI with neon accents, ${topic} performance`,
+    `Futuristic data command center for "${topic}" performance.
+    Holographic pie charts, 3D bar graphs, real-time line charts floating in space.
+    Dark background with grid lines, neon data points, pulse animations frozen in time.
+    Purple-cyan-magenta color scheme. Iron Man JARVIS aesthetic.
+    No text. Pure data beauty.`,
   advanced: (title, topic) =>
-    `Lightbulb with creative solutions, innovation concept, tech breakthrough visualization, glowing ideas, dark purple background, ${topic} advanced features`,
+    `AI breakthrough visualization for "${topic}" advanced features.
+    Human brain merged with circuit board, neural pathways glowing purple-cyan.
+    Futuristic laboratory setting, quantum computing elements, holographic projections.
+    Cinematic lighting, dramatic shadows, photorealistic digital sculpture.
+    No text. Innovation and discovery feeling.`,
   troubleshooting: (title, topic) =>
-    `Bug fixing and debugging, magnifying glass over code, problem solving visualization, developer tools, dark theme, ${topic} errors`,
+    `Digital detective scene for "${topic}" debugging.
+    Magnifying glass examining glowing bug icon, Sherlock-style deductive visualization.
+    Dark noir atmosphere with cyan crime-scene tape accents, matrix-style background clues.
+    Cinematic film still quality, dramatic side-lighting.
+    No readable text. Mystery-solving tech aesthetic.`,
   tips: (title, topic) =>
-    `Lightbulb with creative solutions, innovation concept, tech breakthrough visualization, glowing ideas, dark purple background, ${topic} pro tips`,
+    `Creative innovation spark for "${topic}" pro tips.
+    Exploding lightbulb made of geometric shards, each shard showing abstract code pattern.
+    Dark purple background, golden spark particles, bokeh light effects.
+    Surreal digital art meets technical illustration.
+    No text. Eureka moment feeling.`,
   best_practices: (title, topic) =>
-    `Checklist and quality assurance visualization, green checkmarks, professional standards, dark theme, ${topic} best practices`,
+    `Quality assurance zen garden for "${topic}" best practices.
+    Perfectly aligned geometric shapes, golden ratio spiral, green checkmark constellation.
+    Clean Japanese minimalist aesthetic, dark slate background, moss green accents.
+    Balance and harmony composition. Apple-keynote-slide quality.
+    No text. Perfect order feeling.`,
   conclusion: (title, topic) =>
-    `Success checkmark and rocket launch, achievement celebration, modern tech victory, dark gradient purple to cyan, ${topic} completion`,
+    `Victory celebration scene for "${topic}" mastery.
+    Rocket launch from laptop screen, confetti made of glowing code particles.
+    Astronaut floating in space with thumbs up, Earth in background.
+    Purple-cyan aurora borealis in cosmic sky, lens flare effects.
+    Epic cinematic poster composition, inspirational tech aesthetic.
+    No text. Achievement unlocked feeling.`,
 }
 
 /* ─── Core Image Generation (fal.ai Primary with Retry) ─── */

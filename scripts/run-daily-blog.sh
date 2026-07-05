@@ -149,18 +149,35 @@ main() {
   html_count=$(find "${PROJECT_ROOT}/dist" -name "*.html" | wc -l)
   log "OK" "Build verified: ${html_count} HTML files in dist/"
 
-  # ── Step 5: Reload PM2 ────────────────────────────────────────────────────
-  log "INFO" "Step 5/5 — Reloading PM2..."
+  # ── Step 5: Reload Services ────────────────────────────────────────────────
+  log "INFO" "Step 5/5 — Reloading services..."
 
+  # Reload PM2 static-site process to pick up new dist/
   if command -v pm2 &> /dev/null; then
-    if ! pm2 reload all; then
-      log "WARN" "PM2 reload command failed. Processes may need manual restart."
-      # Don't exit with error — the build succeeded, PM2 is optional
+    if pm2 reload static-site 2>/dev/null; then
+      log "OK" "PM2 static-site reloaded successfully"
+    elif pm2 list | grep -q "static-site"; then
+      log "WARN" "PM2 static-site reload command failed. Try manual restart."
     else
-      log "OK" "PM2 reloaded successfully"
+      log "WARN" "PM2 static-site process not found. Run: pm2 start ecosystem.config.js"
+    fi
+
+    # Also reload API server if running
+    if pm2 reload api-server 2>/dev/null; then
+      log "OK" "PM2 api-server reloaded successfully"
     fi
   else
     log "WARN" "PM2 not installed. Skipping process reload."
+  fi
+
+  # If using Docker, restart the container to pick up new dist/
+  if command -v docker &> /dev/null && docker compose ps 2>/dev/null | grep -q "joseph-portfolio"; then
+    log "INFO" "Restarting Docker container..."
+    if docker compose restart portfolio 2>/dev/null || docker-compose restart portfolio 2>/dev/null; then
+      log "OK" "Docker container restarted"
+    else
+      log "WARN" "Docker restart failed or not configured"
+    fi
   fi
 
   # ── Summary ─────────────────────────────────────────────────────────────────

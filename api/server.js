@@ -11,6 +11,7 @@ const fs = require('fs')
 const path = require('path')
 const { URL } = require('url')
 const crypto = require('crypto')
+const { spawn } = require('child_process')
 
 const PORT = 3004
 const OLLAMA_API_KEY = process.env.OLLAMA_API_KEY || ''
@@ -20,6 +21,10 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || ''
 const ADMIN_USER = process.env.ADMIN_USER || 'admin'
 const ADMIN_PASS = process.env.ADMIN_PASS || 'admin123'
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || ''
+
+const PROJECT_ROOT = path.join(__dirname, '..')
+const LOGS_DIR = path.join(PROJECT_ROOT, 'logs')
+const LOCK_FILE = '/tmp/ucm-admin.lock'
 
 const OLLAMA_URL = 'https://ollama.com/api/chat'
 
@@ -56,6 +61,41 @@ const CORS = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   'Content-Type': 'application/json',
+}
+
+/* ─── Pipeline Lock Helpers ─── */
+function isLocked() {
+  return fs.existsSync(LOCK_FILE)
+}
+
+function acquireLock() {
+  fs.writeFileSync(LOCK_FILE, String(process.pid))
+}
+
+function releaseLock() {
+  try { fs.unlinkSync(LOCK_FILE) } catch {}
+}
+
+function runCommand(cmd, args, cwd, timeoutMs = 300000) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(cmd, args, { cwd, env: { ...process.env, FORCE_COLOR: '0' } })
+    let stdout = ''
+    let stderr = ''
+    const timer = setTimeout(() => {
+      child.kill('SIGTERM')
+      reject(new Error(`Command timed out after ${timeoutMs}ms`))
+    }, timeoutMs)
+    child.stdout.on('data', d => { stdout += d })
+    child.stderr.on('data', d => { stderr += d })
+    child.on('close', code => {
+      clearTimeout(timer)
+      resolve({ code, stdout, stderr })
+    })
+    child.on('error', err => {
+      clearTimeout(timer)
+      reject(err)
+    })
+  })
 }
 
 /* ─── Session Store ─── */
@@ -427,6 +467,190 @@ function handleAdmin(req, res, pathname) {
       }
       return serveJson(res, 200, { systemPrompt: SYSTEM_PROMPT })
     })
+  }
+
+  // POST /admin/generate-content — Trigger AI blog generation
+  if (pathname === '/admin/generate-content' && req.method === 'POST') {
+    return parseBody(req, (err, body) => {
+      if (err) return serveJson(res, 400, { error: 'Invalid JSON' })
+      if (isLocked()) {
+        return serveJson(res, 409, { error: 'Pipeline already running. Check /admin/pipeline/status', lockFile: LOCK_FILE })
+      }
+
+      const count = Math.min(Math.max(parseInt(body.count || '1', 10), 1), 5)
+      acquireLock()
+
+      const logFile = path.join(LOGS_DIR, `daily-blog-${new Date().toISOString().slice(0, 10)}.log`)
+      const child = spawn('npx', ['tsx', 'scripts/generate-content.ts'], {
+        cwd: PROJECT_ROOT,
+        env: { ...process.env, POSTS_PER_DAY: String(count), FORCE_COLOR: '0' }
+      })
+
+      child.on('close', () => releaseLock())
+      child.on('error', () => releaseLock())
+
+      return serveJson(res, 202, {
+        message: 'Content generation started',
+        count,
+        lockFile: LOCK_FILE,
+        logFile,
+        statusUrl: '/admin/pipeline/status'
+      })
+    })
+  }
+
+  // POST /admin/generate-image — Generate single image via fal.ai
+  if (pathname === '/admin/generate-image' && req.method === 'POST') {
+    return parseBody(req, async (err, body) => {
+      if (err) return serveJson(res, 400, { error: 'Invalid JSON' })
+      const { prompt, width = 1024, height = 576 } = body || {}
+      if (!prompt || typeof prompt !== 'string') {
+        return serveJson(res, 400, { error: 'Prompt is required' })
+      }
+
+      const filename = `cms-${Date.now()}`
+      try {
+        const result = await runCommand('npx', [
+          'tsx', 'scripts/fal-ai.ts',
+          prompt,
+          filename,
+          String(width),
+          String(height)
+        ], PROJECT_ROOT, 120000)
+
+        if (result.code !== 0) {
+          console.error('[admin/generate-image] fal.ai failed:', result.stderr)
+          return serveJson(res, 500, { error: 'Image generation failed', details: result.stderr.slice(0, 500) })
+        }
+
+        return serveJson(res, 200, {
+          imageUrl: `/images/generated/${filename}.png`,
+          prompt,
+          width,
+          height,
+          filename
+        })
+      } catch (e) {
+        return serveJson(res, 500, { error: e.message })
+      }
+    })
+  }
+
+  // GET /admin/logs — List log files
+  if (pathname === '/admin/logs' && req.method === 'GET') {
+    try {
+      if (!fs.existsSync(LOGS_DIR)) return serveJson(res, 200, { logs: [] })
+      const files = fs.readdirSync(LOGS_DIR)
+        .filter(f => f.endsWith('.log'))
+        .map(f => {
+          const stat = fs.statSync(path.join(LOGS_DIR, f))
+          return { name: f, size: stat.size, modified: stat.mtime.toISOString() }
+        })
+        .sort((a, b) => new Date(b.modified) - new Date(a.modified))
+      return serveJson(res, 200, { logs: files })
+    } catch (e) {
+      return serveJson(res, 500, { error: e.message })
+    }
+  }
+
+  // GET /admin/logs/:filename — Read log file (last 500 lines)
+  if (pathname.startsWith('/admin/logs/') && req.method === 'GET') {
+    const parts = pathname.split('/')
+    const filename = path.basename(parts[3] || '')
+    if (!filename || filename.includes('..') || filename.includes('/')) {
+      return serveJson(res, 403, { error: 'Invalid filename' })
+    }
+    const filePath = path.join(LOGS_DIR, filename)
+    if (!filePath.startsWith(LOGS_DIR)) {
+      return serveJson(res, 403, { error: 'Invalid path' })
+    }
+    try {
+      if (!fs.existsSync(filePath)) return serveJson(res, 404, { error: 'Log not found' })
+      const content = fs.readFileSync(filePath, 'utf8')
+      const allLines = content.split('\n')
+      const lines = allLines.slice(-500)
+      return serveJson(res, 200, { filename, lines, totalLines: allLines.length })
+    } catch (e) {
+      return serveJson(res, 500, { error: e.message })
+    }
+  }
+
+  // POST /admin/build — Build Next.js site
+  if (pathname === '/admin/build' && req.method === 'POST') {
+    if (isLocked()) {
+      return serveJson(res, 409, { error: 'Pipeline already running. Cannot build concurrently.', lockFile: LOCK_FILE })
+    }
+    acquireLock()
+
+    runCommand('npm', ['run', 'build'], PROJECT_ROOT, 300000)
+      .then(result => {
+        releaseLock()
+        if (result.code === 0) {
+          // Attempt PM2 reload silently
+          runCommand('pm2', ['reload', 'static-site'], PROJECT_ROOT, 15000).catch(() => {})
+          runCommand('pm2', ['reload', 'api-server'], PROJECT_ROOT, 15000).catch(() => {})
+        }
+      })
+      .catch(() => releaseLock())
+
+    return serveJson(res, 202, {
+      message: 'Build started',
+      lockFile: LOCK_FILE,
+      estimatedSeconds: 60,
+      statusUrl: '/admin/pipeline/status'
+    })
+  }
+
+  // GET /admin/pipeline/status — Check if generation/build is running
+  if (pathname === '/admin/pipeline/status' && req.method === 'GET') {
+    return serveJson(res, 200, {
+      running: isLocked(),
+      lockFile: LOCK_FILE,
+      pid: isLocked() ? (() => { try { return fs.readFileSync(LOCK_FILE, 'utf8') } catch { return null } })() : null
+    })
+  }
+
+  // GET /admin/comments — List all comments across all posts
+  if (pathname === '/admin/comments' && req.method === 'GET') {
+    try {
+      ensureCommentsDir()
+      const files = fs.readdirSync(COMMENTS_DIR).filter(f => f.endsWith('.json'))
+      const allComments = []
+      for (const file of files) {
+        const slug = file.replace('.json', '')
+        const data = readJsonFile(path.join(COMMENTS_DIR, file))
+        if (data && Array.isArray(data.comments)) {
+          for (const c of data.comments) {
+            allComments.push({ ...c, slug })
+          }
+        }
+      }
+      allComments.sort((a, b) => new Date(b.timestamp || 0) - new Date(a.timestamp || 0))
+      return serveJson(res, 200, { comments: allComments })
+    } catch (e) {
+      return serveJson(res, 500, { error: e.message })
+    }
+  }
+
+  // DELETE /admin/comments/:slug/:commentId
+  if (pathname.startsWith('/admin/comments/') && req.method === 'DELETE') {
+    const parts = pathname.split('/')
+    const slug = parts[3]
+    const commentId = parts[4]
+    if (!slug || !commentId) {
+      return serveJson(res, 400, { error: 'Missing slug or commentId' })
+    }
+    try {
+      const comments = readComments(slug)
+      const filtered = comments.filter(c => c.id !== commentId)
+      if (filtered.length === comments.length) {
+        return serveJson(res, 404, { error: 'Comment not found' })
+      }
+      writeComments(slug, filtered)
+      return serveJson(res, 200, { deleted: true, commentId, slug, remaining: filtered.length })
+    } catch (e) {
+      return serveJson(res, 500, { error: e.message })
+    }
   }
 
   serveJson(res, 404, { error: 'Not found' })
