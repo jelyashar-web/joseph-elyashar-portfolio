@@ -1,0 +1,20 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>ניהול הבלוג · ElyasharLabs</title><link rel="stylesheet" href="/app.css"></head><body>
+<section id="login" class="center hidden"><form id="lf" class="card login"><h1>ניהול הבלוג</h1><p class="muted">כניסה מאובטחת עם חשבון Appwrite</p>
+<label>אימייל<input name="email" type="email" autocomplete="username" required></label><label>סיסמה<input name="password" type="password" autocomplete="current-password" required></label>
+<button class="btn primary">כניסה</button><p id="lerr" class="err"></p></form></section>
+<section id="app" class="hidden">
+<header class="top"><b>ElyasharLabs · CMS</b><span id="bstat" class="muted"></span><span class="grow"></span><a href="https://elyasharlabs.com/blog/" target="_blank" class="btn">לאתר ↗</a><button id="rebuild" class="btn">פרסום מחדש של האתר</button><button id="logout" class="btn">יציאה</button></header>
+<main id="list" class="wrap"><div class="bar"><h2>פוסטים <span id="cnt" class="muted"></span></h2><span class="grow"></span><input id="search" placeholder="חיפוש…"><select id="fst"><option value="">כל הסטטוסים</option><option value="published">פורסם</option><option value="draft">טיוטה</option></select><button id="new" class="btn primary">+ פוסט חדש</button></div>
+<table class="tbl"><thead><tr><th></th><th>כותרת</th><th>סטטוס</th><th>תאריך</th><th>מילים</th><th>מקור</th><th></th></tr></thead><tbody id="rows"></tbody></table></main>
+<main id="edit" class="wrap hidden"><div class="bar"><button id="back" class="btn">→ חזרה</button><h2 id="etitle">עריכה</h2><span class="grow"></span><span id="saved" class="muted"></span>
+<button id="del" class="btn danger">מחיקה</button><button id="save" class="btn">שמירה</button><button id="pub" class="btn primary">פרסום</button></div>
+<div class="meta card"><label class="w2">כותרת<input id="f_title"></label><label>Slug (אנגלית)<input id="f_slug" dir="ltr"></label><label>קטגוריה<input id="f_category"></label>
+<label class="w2">תקציר<textarea id="f_excerpt" rows="2"></textarea></label><label>תיאור מטא (SEO)<textarea id="f_metaDescription" rows="2" maxlength="300"></textarea></label><label>תגיות (מופרדות בפסיק)<input id="f_tags"></label>
+<label>תאריך פרסום<input id="f_publishedAt" type="datetime-local"></label><label class="w2">מקורות (קישור בכל שורה)<textarea id="f_sourceLinks" rows="2" dir="ltr"></textarea></label>
+<div class="hero"><img id="heroimg" alt=""><div><label>תמונה ראשית<input id="heroup" type="file" accept="image/*"></label><label>טקסט חלופי<input id="f_heroAlt"></label></div></div></div>
+<div class="tools"><button data-md="## ">H2</button><button data-md="### ">H3</button><button data-wrap="**">B</button><button data-wrap="*">I</button><button data-md="- ">• רשימה</button><button data-link>קישור</button><label class="btn">תמונה בתוך הטקסט<input id="inup" type="file" accept="image/*" hidden></label><span class="grow"></span><span id="wc" class="muted"></span></div>
+<div class="split"><textarea id="f_content" spellcheck="false" placeholder="כתבי כאן ב-Markdown…"></textarea><article id="preview" class="preview"></article></div></main>
+</section>
+<dialog id="dlg"><p id="dmsg"></p><div class="row"><button id="dno" class="btn">ביטול</button><button id="dyes" class="btn danger">כן, למחוק</button></div></dialog>
+<script src="/marked.js"></script><script src="/app.js"></script></body></html>

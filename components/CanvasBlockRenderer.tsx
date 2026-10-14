@@ -377,7 +377,7 @@ function HeadingBlock({
   const [hovered, setHovered] = useState(false)
   const theme = useThemeClasses(isDark)
 
-  const Tag = (`h${level}` as keyof JSX.IntrinsicElements) || 'h2'
+  const Tag = (`h${level}` as keyof React.JSX.IntrinsicElements) || 'h2'
   const sizeClasses: Record<number, string> = {
     1: 'text-3xl md:text-4xl font-black mb-8 mt-12',
     2: 'text-2xl md:text-3xl font-bold mb-6 mt-10',

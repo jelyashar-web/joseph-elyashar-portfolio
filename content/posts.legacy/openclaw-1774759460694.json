@@ -1,0 +1,21 @@
+{
+  "slug": "openclaw-1774759460694",
+  "title": "openclaw - כל מה שצריך לדעת על הכלי הזה",
+  "content": "<h2>מהו openclaw?</h2>\n<p>\n  <strong>openclaw</strong> הוא Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 .\n  הפרויקט זכה ליותר מ-339,603 כוכבים ב-GitHub ונכתב בעיקר בשפת TypeScript.\n</p>\n\n<h2>למה כדאי להשתמש ב-openclaw?</h2>\n<ul>\n  <li>✅ <strong>פופולריות:</strong> יותר מ-339,603 מפתחים כבר משתמשים בו</li>\n  <li>✅ <strong>קהילה חזקה:</strong> תמיכה ועדכונים שוטפים</li>\n  <li>✅ <strong>קוד פתוח:</strong> חינם לשימוש וניתן להתאמה אישית</li>\n  <li>✅ <strong>ai:</strong> תכונה מתקדמת</li>\n<li>✅ <strong>assistant:</strong> תכונה מתקדמת</li>\n<li>✅ <strong>crustacean:</strong> תכונה מתקדמת</li>\n</ul>\n\n<h2>דרישות מקדימות</h2>\n<p>לפני ההתקנה, ודא שיש לך:</p>\n<ul>\n  <li>מערכת הפעלה Linux/Windows/Mac</li>\n  <li>Git מותקן</li>\n  \n  <li>Node.js 16+ מותקן</li>\n  \n  \n</ul>\n\n<h2>התקנה - שלב אחר שלב</h2>\n\n<h3>שלב 1: הורדת הקוד</h3>\n<pre><code>git clone https://github.com/openclaw/openclaw.git\ncd openclaw</code></pre>\n\n<h3>שלב 2: התקנת תלויות</h3>\n<pre><code>npm install\n# או\nyarn install</code></pre>\n\n<h3>שלב 3: הרצה ראשונית</h3>\n<pre><code>npm run dev\n# או\nnpm start</code></pre>\n\n<h2>דוגמאות שימוש</h2>\n<pre><code># דוגמה בסיסית\nopenclaw --help\n\n# דוגמה מתקדמת\nopenclaw ai --verbose\n\n# שמירת תוצאה לקובץ\nopenclaw > output.txt</code></pre>\n\n<h2>טיפים מתקדמים</h2>\n<ul>\n  <li>💡 קרא את התיעוד הרשמי ב-https://github.com/openclaw/openclaw</li>\n  <li>💡 הצטרף לקהילת ה-Discord/Slack של הפרויקט</li>\n  <li>💡 עקוב אחרי ה-releases כדי לקבל עדכונים</li>\n  <li>💡 תרום לפרויקט - דווח על באגים או הצע שיפורים</li>\n</ul>\n\n<h2>סיכום</h2>\n<p>\n  openclaw הוא כלי מעולה שיכול לחסוך לך המון זמן ומאמץ.\n  עם 339,603 כוכבים ב-GitHub, אתה יכול להיות בטוח שזה פתרון שנבדק ועובד.\n</p>\n\n<p>\n  <strong>מוכן להתחיל?</strong> הורד את openclaw עכשיו ותן למחשב לעבוד בשבילך!\n</p>\n\n<hr />\n\n<p class=\"text-sm text-gray-500\">\n  <em>פוסט זה נכתב אוטומטית על ידי מכונת התוכן SEO. \n  מקור: <a href=\"https://github.com/openclaw/openclaw\" target=\"_blank\">GitHub</a>\n  </em>\n</p>",
+  "excerpt": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 ",
+  "date": "2026-03-29T04:44:20.694Z",
+  "readTime": "2 דקות קריאה",
+  "tags": [
+    "TypeScript",
+    "ai",
+    "assistant",
+    "crustacean",
+    "GitHub",
+    "מדריך",
+    "התקנה"
+  ],
+  "category": "בינה מלאכותית",
+  "githubUrl": "https://github.com/openclaw/openclaw",
+  "source": "github-trending",
+  "imageUrl": "/images/generated/openclaw-1774759460694-hero.png"
+}

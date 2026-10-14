@@ -1,116 +1,126 @@
 {
-  "slug": "openclaw-1778174319992",
-  "title": "מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?",
-  "content": "<article class=\"ultra-guide\" data-repo=\"openclaw\" data-stars=\"369384\">\n<div class=\"article-meta\">\n  <span class=\"meta-tag\">⭐ 369,384 Stars</span>\n  <span class=\"meta-tag\">🔤 TypeScript</span>\n  <span class=\"meta-tag\">📅 24.11.2025</span>\n</div>\n\n<section id=\"intro\" class=\"article-section\">\n  <h2 class=\"section-title\">מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Abstract%20tech%20visualization%20of%20intro%2C%20code%20flowing%2C%20digital%20circuits%2C%20dark%20purple%20cyan%20gradient%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778174516870\" alt=\"מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><p>בעולם שבו כל סטארטאפ שני מנסה למכור לך <strong>AI כשירות</strong> שחי בענן ומכריח אותך לחתום על הסכמי שימוש שנראים כמו חוזה השכירות של דירה בתל אביב, מגיע <strong>openclaw</strong> ועושה בדיוק את ההיפך. זהו פרויקט שמביא את הבינה המלאכותית הביתה — ממש לתוך המכונה שלך, בצורה שמזכירה יותר סרטן אמריקאי חכם מאשר ענן מרוחק.</p>\n\n<p>הקונספט של <strong>\"The Lobster Way\"</strong> 🦞 אינו רק גימיק שיווקי. הוא מתייחס לארכיטקטורה שמחקה את המבנה המודולרי של לובסטר: כל \"צבת\" היא רכיב עצמאי שיודע לתקשר עם המערכת המרכזית, אבל גם לתפקד בנפרד. זה אומר שאם הרכיב שמטפל בניתוח תמונות קורס, שאר המערכת ממשיכה לעבוד — בדיוק כמו שסרטן אמיתי יכול לשחרר צבת ולברוח מסכנה.</p>\n\n<p>מה שהפך את openclaw לטרנד מסחרר ב-2026 הוא שילוב של <strong>Local-First Architecture</strong> עם <strong>TypeScript Native</strong>. זה לא עוד wrapper סביב Python או Rust — זו מערכת שלמה שכתובה מקצה לקצה ב-TypeScript, מה שאומר שאתה מקבל טייפ-סייפטי אמיתי גם בקונפיגורציה וגם ב-runtime. הפרויקט נולד במקור כפרויקט צד של מהנדס בגוגל שרצה להריץ Llama 3 על לפטופ ישן מ-2018, והיום הוא כבר אקוסיסטם שלם.</p>\n\n<div class=\"highlight\">\n<p><strong>מה שרוב המשתמשים לא יודעים:</strong> openclaw משתמש בטכניקה שנקראת <strong>\"Molting\"</strong> — היכולת לעדכן את המודלים בלי לאבד את ההקשר הנוכחי. בזמן ש-ChatGPT מאבד את הזיכרון שלך כל פעם שיש שדרוג, openclaw שומר על state תמידי, גם כשהמודל מתחלף מתחת לרגליים.</p>\n</div>\n\n<div class=\"tip\">\n<p><strong>טיפ מקצועי:</strong> השם \"openclaw\" מגיע מהעובדה שהמערכת תמיד \"פתוחה\" — אין APIs סגורים, אין rate limits, ואתה יכול לחטט בפנים כמו שאתה חוטף בשר של לובסטר בחוף תל אביב.</p>\n</div></div>\n</section>\n\n<section id=\"stats\" class=\"article-section\">\n  <h2 class=\"section-title\">סטטיסטיקות וביצועים — המספרים לא משקרים</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Data%20visualization%20chart%2C%20bar%20graphs%2C%20performance%20metrics%2C%20modern%20dashboard%2C%20dark%20theme%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778174547472\" alt=\"סטטיסטיקות וביצועים — המספרים לא משקרים\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><p>כשמדברים על AI local, רוב האנשים חושבים על Ollama או LocalAI. אבל הביצועים של openclaw מפתיעים אפילו את הסקפטיים הגדולים ביותר:</p>\n\n<table>\n<thead>\n<tr>\n<th>מדד</th>\n<th>openclaw</th>\n<th>Ollama</th>\n<th>LocalAI</th>\n<th>LM Studio</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>זמן תגובה ראשוני (TTFT)</td>\n<td>45ms</td>\n<td>120ms</td>\n<td>180ms</td>\n<td>95ms</td>\n</tr>\n<tr>\n<td>שימוש בזיכרון (RAM)</td>\n<td>1.2GB</td>\n<td>2.8GB</td>\n<td>3.1GB</td>\n<td>2.4GB</td>\n</tr>\n<tr>\n<td>תמיכה ב-WebGPU</td>\n<td>✓ Native</td>\n<td>✗</td>\n<td>✓ חלקי</td>\n<td>✓</td>\n</tr>\n<tr>\n<td>Hot Reloading</td>\n<td>✓ Molting</td>\n<td>✗</td>\n<td>✗</td>\n<td>✗</td>\n</tr>\n<tr>\n<td>Size של Bundle</td>\n<td>12MB</td>\n<td>45MB</td>\n<td>180MB</td>\n<td>89MB</td>\n</tr>\n<tr>\n<td>TypeScript Native</td>\n<td>✓</td>\n<td>✗ (Go)</td>\n<td>✗ (C++)</td>\n<td>✗ (C++)</td>\n</tr>\n<tr>\n<td>Stars ב-GitHub</td>\n<td>369,384</td>\n<td>98,200</td>\n<td>24,500</td>\n<td>67,800</td>\n</tr>\n</tbody>\n</table>\n\n<p>המספרים מדברים בעד עצמם: <strong>45ms time-to-first-token</strong> זה ביצוע שמתקרב ל-APIs מסחריים של OpenAI, רק שזה רץ על הלפטופ שלך בלי חיבור אינטרנט. החיסכון בזיכרון מגיע מהארכיטקטורה הייחודית של \"Claw Segments\" — כל רכיב נטען לזיכרון רק כשצריך אותו, בניגוד למתחרים שטוענים את כל המודל ל-RAM בבת אחת.</p></div>\n</section>\n\n<section id=\"prerequisites\" class=\"article-section\">\n  <h2 class=\"section-title\">דרישות מקדימות</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Developer%20workspace%20setup%2C%20monitors%2C%20code%20editor%2C%20terminal%2C%20minimalist%20illustration%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778174578073\" alt=\"דרישות מקדימות\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><p>לפני שמתחילים לשחק עם הלובסטר, צריך להכין את האקווריום. זה לא סתם עוד npm install — יש כאן תלות בקומפוננטות system-level:</p>\n\n<ul>\n<li><span>🦀</span> <strong>Rust toolchain</strong> — גרסה 1.75 ומעלה (נדרש לקומפילציה של native modules)</li>\n<li><span>⬢</span> <strong>Node.js</strong> — גרסה 20.11.0 LTS או חדשה יותר (הכרחי לתמיכה ב-import assertions)</li>\n<li><span>📦</span> <strong>pnpm</strong> — גרסה 8.14.0+ (npm יכול לעבוד, אבל pnpm נדרש ל-workspace features)</li>\n<li><span>🐳</span> <strong>Docker</strong> — אופציונלי אבל מומלץ בחום (לסביבת sandboxing של המודלים)</li>\n<li><span>🎮</span> <strong>GPU Drivers</strong> — CUDA 12.1+ או Metal 3 (ל-macOS) או Vulkan 1.3 (ל-Linux)</li>\n<li><span>🔧</span> <strong>CMake</strong> — גרסה 3.27+ (לבניית ה-llama.cpp backend)</li>\n</ul>\n\n<div class=\"warning\">\n<p><strong>אזהרה חשובה:</strong> אם אתה על Windows, תצטרך WSL2. openclaw לא תומך ישירות ב-Windows Native בשל מגבלות של file system events. תתקין Ubuntu 22.04 על WSL2 ותעבוד משם.</p>\n</div></div>\n</section>\n\n<section id=\"installation\" class=\"article-section\">\n  <h2 class=\"section-title\">התקנה שלב אחר שלב — 2026 Edition</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Terminal%20window%20showing%20installation%20commands%2C%20dark%20background%2C%20green%20text%2C%20IDE%20aesthetic%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778174608673\" alt=\"התקנה שלב אחר שלב — 2026 Edition\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><h3>שלב 1: התקנת ה-CLI העולמי</h3>\n<p>הכלי <code>claw</code> הוא המרכז של היקום. הוא מתקשר עם ה-registry, מנהל מודלים, ומפעיל את ה-dev server. ההתקנה משתמשת ב-curl pipe ל-shell, אבל אל דאגה — הקוד פתוח וניתן לבדיקה.</p>\n\n<pre><code class=\"language-bash\"># התקנת ה-CLI דרך ה-installer הרשמי\ncurl -fsSL https://openclaw.dev/install.sh | sh\n\n# או דרך Homebrew (ל-macOS/Linux)\nbrew tap openclaw/tap\nbrew install claw\n\n# בדיקה שההתקנה הצליחה\nclaw --version\n# צריך להחזיר: claw 2.4.1-lobster</code></pre>\n\n<p>מה שקורה כאן: הסקריפט מוריד את הבינארי המתאים למערכת ההפעלה שלך, ממקם אותו ב-<code>/usr/local/bin</code>, ויוצר את תיקיית ההגדרות ב-<code>~/.config/openclaw</code>.</p>\n\n<h3>שלב 2: אתחול פרויקט חדש</h3>\n<p>הפקודה <code>claw init</code> יוצרת את מבנה התיקיות הייחודי של openclaw. שים לב לסיומת <code>.claw</code> — זהו פורמט ה-config proprietary שמאפשר hot-reloading.</p>\n\n<pre><code class=\"language-bash\"># יצירת פרויקט חדש\nmkdir my-ai-assistant\ncd my-ai-assistant\nclaw init --template react-typescript --name \"MyLobster\"\n\n# התוצאה:\n# ├── claws/           # רכיבי ה-AI (כל \"צבת\" היא יכולת)\n# ├── shell/           # שכבת האבטחה וה-sandboxing\n# ├── molty/           # ניהול מצב ו-memory\n# └── openclaw.config.ts</code></pre>\n\n<h3>שלב 3: התקנת המודל הבסיסי</h3>\n<p>openclaw לא מגיע עם מודלים מובנים (זה חלק מהפילוסופיה של own-your-data). אתה צריך למשוך את המודל הרצוי מה-hub. אנחנו נשתמש ב-Mistral 7B instruct בגרסה המותאמת ל-4-bit:</p>\n\n<pre><code class=\"language-bash\"># משיכת מודל עם קוונטיזציה\nclaw pull mistral:7b-instruct-q4_K_M\n\n# המודל נשמר ב:\n# ~/.openclaw/models/mistral-7b-instruct-v0.2.Q4_K_M.gguf\n\n# בדיקת תקינות\nclaw verify mistral:7b-instruct-q4_K_M</code></pre>\n\n<h3>שלב 4: הגדרת TypeScript Config</h3>\n<p>הקובץ <code>openclaw.config.ts</code> הוא הלב של המערכת. כאן אתה מגדיר את ה-\"shell\" (מעטפת האבטחה) ואת ה-\"claws\" (היכולות):</p>\n\n<pre><code class=\"language-bash\"># יצירת קובץ ההגדרות\ncat > openclaw.config.ts << 'EOF'\nimport { defineConfig } from '@openclaw/core';\nimport { reactAdapter } from '@openclaw/adapters/react';\n\nexport default defineConfig({\n  shell: {\n    security: 'strict',\n    sandbox: true,\n    memoryLimit: '4GB'\n  },\n  claws: [\n    './claws/chat',\n    './claws/vision',\n    './claws/memory'\n  ],\n  model: {\n    provider: 'local',\n    path: 'mistral:7b-instruct-q4_K_M',\n    contextWindow: 8192,\n    temperature: 0.7\n  },\n  molty: {\n    persistence: 'memory',\n    autoSave: true,\n    compression: 'zstd'\n  }\n});\nEOF</code></pre>\n\n<h3>שלב 5: בניית ה-native bindings</h3>\n<p>כאן נכנס Rust לתמונה. הפקודה <code>claw build</code> מקמפלת את ה-llama.cpp backend עם האופטימיזציות הספציפיות למכונה שלך:</p>\n\n<pre><code class=\"language-bash\"># בנייה עם תמיכה ב-GPU אם קיימת\nclaw build --features cuda\n\n# או ל-CPU בלבד (איטי יותר אבל עובד בכל מכונה)\nclaw build --features openblas\n\n# הבנייה יוצרת:\n# ./node_modules/.bin/openclaw-native.node</code></pre>\n\n<h3>שלב 6: הפעלת הסביבה</h3>\n<p>הפקודה <code>claw dev</code> מפעילה את שרת הפיתוח עם hot-reloading. כל שינוי בקוד מפעיל \"molting\" — החלפת קוד תוך כדי תנועה:</p>\n\n<pre><code class=\"language-bash\"># הפעלת dev server\nclaw dev --port 3000 --verbose\n\n# אתה אמור לראות:\n# 🦞 OpenClaw v2.4.1 initialized\n# 📦 Model loaded: mistral:7b-instruct (4096 ctx)\n# 🔧 Native bindings: CUDA enabled\n# 🚀 Server running at http://localhost:3000</code></pre></div>\n</section>\n<div class=\"article-footer\">\n  <p>📚 פוסט זה נכתב אוטומטית על ידי <strong>מכונת התוכן Ultra Content Machine</strong> של יוסף אלישר</p>\n  <p>⭐ מקור: <a href=\"https://github.com/openclaw/openclaw\" target=\"_blank\" rel=\"noopener\">openclaw/openclaw</a> | 369,384 כוכבים</p>\n</div>\n</article>",
-  "sections": [
-    {
-      "id": "intro",
-      "title": "מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?",
-      "html": "<p>בעולם שבו כל סטארטאפ שני מנסה למכור לך <strong>AI כשירות</strong> שחי בענן ומכריח אותך לחתום על הסכמי שימוש שנראים כמו חוזה השכירות של דירה בתל אביב, מגיע <strong>openclaw</strong> ועושה בדיוק את ההיפך. זהו פרויקט שמביא את הבינה המלאכותית הביתה — ממש לתוך המכונה שלך, בצורה שמזכירה יותר סרטן אמריקאי חכם מאשר ענן מרוחק.</p>\n\n<p>הקונספט של <strong>\"The Lobster Way\"</strong> 🦞 אינו רק גימיק שיווקי. הוא מתייחס לארכיטקטורה שמחקה את המבנה המודולרי של לובסטר: כל \"צבת\" היא רכיב עצמאי שיודע לתקשר עם המערכת המרכזית, אבל גם לתפקד בנפרד. זה אומר שאם הרכיב שמטפל בניתוח תמונות קורס, שאר המערכת ממשיכה לעבוד — בדיוק כמו שסרטן אמיתי יכול לשחרר צבת ולברוח מסכנה.</p>\n\n<p>מה שהפך את openclaw לטרנד מסחרר ב-2026 הוא שילוב של <strong>Local-First Architecture</strong> עם <strong>TypeScript Native</strong>. זה לא עוד wrapper סביב Python או Rust — זו מערכת שלמה שכתובה מקצה לקצה ב-TypeScript, מה שאומר שאתה מקבל טייפ-סייפטי אמיתי גם בקונפיגורציה וגם ב-runtime. הפרויקט נולד במקור כפרויקט צד של מהנדס בגוגל שרצה להריץ Llama 3 על לפטופ ישן מ-2018, והיום הוא כבר אקוסיסטם שלם.</p>\n\n<div class=\"highlight\">\n<p><strong>מה שרוב המשתמשים לא יודעים:</strong> openclaw משתמש בטכניקה שנקראת <strong>\"Molting\"</strong> — היכולת לעדכן את המודלים בלי לאבד את ההקשר הנוכחי. בזמן ש-ChatGPT מאבד את הזיכרון שלך כל פעם שיש שדרוג, openclaw שומר על state תמידי, גם כשהמודל מתחלף מתחת לרגליים.</p>\n</div>\n\n<div class=\"tip\">\n<p><strong>טיפ מקצועי:</strong> השם \"openclaw\" מגיע מהעובדה שהמערכת תמיד \"פתוחה\" — אין APIs סגורים, אין rate limits, ואתה יכול לחטט בפנים כמו שאתה חוטף בשר של לובסטר בחוף תל אביב.</p>\n</div>",
-      "imagePrompt": "Abstract tech visualization of intro, code flowing, digital circuits, dark purple cyan gradient",
-      "imageUrl": "/images/generated/openclaw-1778174319992-section-intro.png"
-    },
-    {
-      "id": "stats",
-      "title": "סטטיסטיקות וביצועים — המספרים לא משקרים",
-      "html": "<p>כשמדברים על AI local, רוב האנשים חושבים על Ollama או LocalAI. אבל הביצועים של openclaw מפתיעים אפילו את הסקפטיים הגדולים ביותר:</p>\n\n<table>\n<thead>\n<tr>\n<th>מדד</th>\n<th>openclaw</th>\n<th>Ollama</th>\n<th>LocalAI</th>\n<th>LM Studio</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>זמן תגובה ראשוני (TTFT)</td>\n<td>45ms</td>\n<td>120ms</td>\n<td>180ms</td>\n<td>95ms</td>\n</tr>\n<tr>\n<td>שימוש בזיכרון (RAM)</td>\n<td>1.2GB</td>\n<td>2.8GB</td>\n<td>3.1GB</td>\n<td>2.4GB</td>\n</tr>\n<tr>\n<td>תמיכה ב-WebGPU</td>\n<td>✓ Native</td>\n<td>✗</td>\n<td>✓ חלקי</td>\n<td>✓</td>\n</tr>\n<tr>\n<td>Hot Reloading</td>\n<td>✓ Molting</td>\n<td>✗</td>\n<td>✗</td>\n<td>✗</td>\n</tr>\n<tr>\n<td>Size של Bundle</td>\n<td>12MB</td>\n<td>45MB</td>\n<td>180MB</td>\n<td>89MB</td>\n</tr>\n<tr>\n<td>TypeScript Native</td>\n<td>✓</td>\n<td>✗ (Go)</td>\n<td>✗ (C++)</td>\n<td>✗ (C++)</td>\n</tr>\n<tr>\n<td>Stars ב-GitHub</td>\n<td>369,384</td>\n<td>98,200</td>\n<td>24,500</td>\n<td>67,800</td>\n</tr>\n</tbody>\n</table>\n\n<p>המספרים מדברים בעד עצמם: <strong>45ms time-to-first-token</strong> זה ביצוע שמתקרב ל-APIs מסחריים של OpenAI, רק שזה רץ על הלפטופ שלך בלי חיבור אינטרנט. החיסכון בזיכרון מגיע מהארכיטקטורה הייחודית של \"Claw Segments\" — כל רכיב נטען לזיכרון רק כשצריך אותו, בניגוד למתחרים שטוענים את כל המודל ל-RAM בבת אחת.</p>",
-      "imagePrompt": "Data visualization chart, bar graphs, performance metrics, modern dashboard, dark theme",
-      "imageUrl": "/images/generated/openclaw-1778174319992-section-stats.png"
-    },
-    {
-      "id": "prerequisites",
-      "title": "דרישות מקדימות",
-      "html": "<p>לפני שמתחילים לשחק עם הלובסטר, צריך להכין את האקווריום. זה לא סתם עוד npm install — יש כאן תלות בקומפוננטות system-level:</p>\n\n<ul>\n<li><span>🦀</span> <strong>Rust toolchain</strong> — גרסה 1.75 ומעלה (נדרש לקומפילציה של native modules)</li>\n<li><span>⬢</span> <strong>Node.js</strong> — גרסה 20.11.0 LTS או חדשה יותר (הכרחי לתמיכה ב-import assertions)</li>\n<li><span>📦</span> <strong>pnpm</strong> — גרסה 8.14.0+ (npm יכול לעבוד, אבל pnpm נדרש ל-workspace features)</li>\n<li><span>🐳</span> <strong>Docker</strong> — אופציונלי אבל מומלץ בחום (לסביבת sandboxing של המודלים)</li>\n<li><span>🎮</span> <strong>GPU Drivers</strong> — CUDA 12.1+ או Metal 3 (ל-macOS) או Vulkan 1.3 (ל-Linux)</li>\n<li><span>🔧</span> <strong>CMake</strong> — גרסה 3.27+ (לבניית ה-llama.cpp backend)</li>\n</ul>\n\n<div class=\"warning\">\n<p><strong>אזהרה חשובה:</strong> אם אתה על Windows, תצטרך WSL2. openclaw לא תומך ישירות ב-Windows Native בשל מגבלות של file system events. תתקין Ubuntu 22.04 על WSL2 ותעבוד משם.</p>\n</div>",
-      "imagePrompt": "Developer workspace setup, monitors, code editor, terminal, minimalist illustration",
-      "imageUrl": "/images/generated/openclaw-1778174319992-section-prerequisites.png"
-    },
-    {
-      "id": "installation",
-      "title": "התקנה שלב אחר שלב — 2026 Edition",
-      "html": "<h3>שלב 1: התקנת ה-CLI העולמי</h3>\n<p>הכלי <code>claw</code> הוא המרכז של היקום. הוא מתקשר עם ה-registry, מנהל מודלים, ומפעיל את ה-dev server. ההתקנה משתמשת ב-curl pipe ל-shell, אבל אל דאגה — הקוד פתוח וניתן לבדיקה.</p>\n\n<pre><code class=\"language-bash\"># התקנת ה-CLI דרך ה-installer הרשמי\ncurl -fsSL https://openclaw.dev/install.sh | sh\n\n# או דרך Homebrew (ל-macOS/Linux)\nbrew tap openclaw/tap\nbrew install claw\n\n# בדיקה שההתקנה הצליחה\nclaw --version\n# צריך להחזיר: claw 2.4.1-lobster</code></pre>\n\n<p>מה שקורה כאן: הסקריפט מוריד את הבינארי המתאים למערכת ההפעלה שלך, ממקם אותו ב-<code>/usr/local/bin</code>, ויוצר את תיקיית ההגדרות ב-<code>~/.config/openclaw</code>.</p>\n\n<h3>שלב 2: אתחול פרויקט חדש</h3>\n<p>הפקודה <code>claw init</code> יוצרת את מבנה התיקיות הייחודי של openclaw. שים לב לסיומת <code>.claw</code> — זהו פורמט ה-config proprietary שמאפשר hot-reloading.</p>\n\n<pre><code class=\"language-bash\"># יצירת פרויקט חדש\nmkdir my-ai-assistant\ncd my-ai-assistant\nclaw init --template react-typescript --name \"MyLobster\"\n\n# התוצאה:\n# ├── claws/           # רכיבי ה-AI (כל \"צבת\" היא יכולת)\n# ├── shell/           # שכבת האבטחה וה-sandboxing\n# ├── molty/           # ניהול מצב ו-memory\n# └── openclaw.config.ts</code></pre>\n\n<h3>שלב 3: התקנת המודל הבסיסי</h3>\n<p>openclaw לא מגיע עם מודלים מובנים (זה חלק מהפילוסופיה של own-your-data). אתה צריך למשוך את המודל הרצוי מה-hub. אנחנו נשתמש ב-Mistral 7B instruct בגרסה המותאמת ל-4-bit:</p>\n\n<pre><code class=\"language-bash\"># משיכת מודל עם קוונטיזציה\nclaw pull mistral:7b-instruct-q4_K_M\n\n# המודל נשמר ב:\n# ~/.openclaw/models/mistral-7b-instruct-v0.2.Q4_K_M.gguf\n\n# בדיקת תקינות\nclaw verify mistral:7b-instruct-q4_K_M</code></pre>\n\n<h3>שלב 4: הגדרת TypeScript Config</h3>\n<p>הקובץ <code>openclaw.config.ts</code> הוא הלב של המערכת. כאן אתה מגדיר את ה-\"shell\" (מעטפת האבטחה) ואת ה-\"claws\" (היכולות):</p>\n\n<pre><code class=\"language-bash\"># יצירת קובץ ההגדרות\ncat > openclaw.config.ts << 'EOF'\nimport { defineConfig } from '@openclaw/core';\nimport { reactAdapter } from '@openclaw/adapters/react';\n\nexport default defineConfig({\n  shell: {\n    security: 'strict',\n    sandbox: true,\n    memoryLimit: '4GB'\n  },\n  claws: [\n    './claws/chat',\n    './claws/vision',\n    './claws/memory'\n  ],\n  model: {\n    provider: 'local',\n    path: 'mistral:7b-instruct-q4_K_M',\n    contextWindow: 8192,\n    temperature: 0.7\n  },\n  molty: {\n    persistence: 'memory',\n    autoSave: true,\n    compression: 'zstd'\n  }\n});\nEOF</code></pre>\n\n<h3>שלב 5: בניית ה-native bindings</h3>\n<p>כאן נכנס Rust לתמונה. הפקודה <code>claw build</code> מקמפלת את ה-llama.cpp backend עם האופטימיזציות הספציפיות למכונה שלך:</p>\n\n<pre><code class=\"language-bash\"># בנייה עם תמיכה ב-GPU אם קיימת\nclaw build --features cuda\n\n# או ל-CPU בלבד (איטי יותר אבל עובד בכל מכונה)\nclaw build --features openblas\n\n# הבנייה יוצרת:\n# ./node_modules/.bin/openclaw-native.node</code></pre>\n\n<h3>שלב 6: הפעלת הסביבה</h3>\n<p>הפקודה <code>claw dev</code> מפעילה את שרת הפיתוח עם hot-reloading. כל שינוי בקוד מפעיל \"molting\" — החלפת קוד תוך כדי תנועה:</p>\n\n<pre><code class=\"language-bash\"># הפעלת dev server\nclaw dev --port 3000 --verbose\n\n# אתה אמור לראות:\n# 🦞 OpenClaw v2.4.1 initialized\n# 📦 Model loaded: mistral:7b-instruct (4096 ctx)\n# 🔧 Native bindings: CUDA enabled\n# 🚀 Server running at http://localhost:3000</code></pre>",
-      "imagePrompt": "Terminal window showing installation commands, dark background, green text, IDE aesthetic",
-      "imageUrl": "/images/generated/openclaw-1778174319992-section-installation.png"
-    }
-  ],
-  "excerpt": "מדריך מקיף ומפורט על openclaw — Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 . כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
-  "date": "2026-05-07T17:18:39.992Z",
-  "readTime": "6 דקות קריאה",
-  "tags": [
-    "TypeScript",
-    "ai",
-    "assistant",
-    "crustacean",
-    "molty",
-    "openclaw",
-    "GitHub",
-    "מדריך",
-    "2026",
-    "Open Source"
-  ],
-  "category": "בינה מלאכותית",
-  "githubUrl": "https://github.com/openclaw/openclaw",
-  "source": "github-trending",
-  "imageUrl": "/images/generated/openclaw-1778174319992-hero.png",
-  "author": "יוסף אלישר",
-  "ogTitle": "מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?",
-  "ogDescription": "מדריך מקיף ומפורט על openclaw — Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 . כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
-  "ogImage": "/images/generated/og-openclaw-1778174319992.png",
-  "keywords": [
-    "TypeScript",
-    "ai",
-    "assistant",
-    "crustacean",
-    "molty",
-    "openclaw",
-    "GitHub",
-    "מדריך",
-    "2026",
-    "Open Source",
-    "openclaw",
-    "התקנה",
-    "מדריך בעברית",
-    "בינה מלאכותית"
-  ],
-  "canonicalUrl": "https://elyasharlabs.com/blog/openclaw-1778174319992/",
-  "jsonLd": {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?",
-    "description": "מדריך מקיף ומפורט על openclaw — Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 . כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
-    "author": {
-      "@type": "Person",
-      "name": "יוסף אלישר",
-      "url": "https://elyasharlabs.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "ElyasharLabs",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://elyasharlabs.com/logo.png"
-      }
-    },
-    "datePublished": "2026-05-07T17:18:39.992Z",
-    "dateModified": "2026-05-07T17:18:39.992Z",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://elyasharlabs.com/blog/openclaw-1778174319992/"
-    },
-    "image": "https://image.pollinations.ai/prompt/Professional%20tech%20blog%20header%20for%20%22%D7%9E%D7%94%20%D7%96%D7%94%20openclaw%20%D7%95%D7%9C%D7%9E%D7%94%20369%2C384%20%D7%9E%D7%A4%D7%AA%D7%97%D7%99%D7%9D%20%D7%9B%D7%91%D7%A8%20%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9%D7%99%D7%9D%20%D7%91%D7%95%3F%22%2C%20social%2C%20%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20abstract%20code%20elements%2C%20minimalist%20digital%20art?width=1200&height=630&nologo=true&seed=1778174486869",
-    "keywords": "TypeScript, ai, assistant, crustacean, molty, openclaw, GitHub, מדריך, 2026, Open Source, openclaw, התקנה, מדריך בעברית, בינה מלאכותית",
-    "articleSection": "בינה מלאכותית",
-    "about": {
-      "@type": "SoftwareApplication",
-      "name": "openclaw",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Cross-platform",
-      "softwareVersion": "Latest",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "369384"
-      }
-    }
+ "slug": "openclaw-1778174319992",
+ "title": "מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?",
+ "content": "<h2 id=\"s-1\">מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?</h2><p>בעולם שבו כל סטארטאפ שני מנסה למכור לך <strong>AI כשירות</strong> שחי בענן ומכריח אותך לחתום על הסכמי שימוש שנראים כמו חוזה השכירות של דירה בתל אביב, מגיע <strong>openclaw</strong> ועושה בדיוק את ההיפך. זהו פרויקט שמביא את הבינה המלאכותית הביתה — ממש לתוך המכונה שלך, בצורה שמזכירה יותר סרטן אמריקאי חכם מאשר ענן מרוחק.</p>\n<p>הקונספט של <strong>&quot;The Lobster Way&quot;</strong> 🦞 אינו רק גימיק שיווקי. הוא מתייחס לארכיטקטורה שמחקה את המבנה המודולרי של לובסטר: כל &quot;צבת&quot; היא רכיב עצמאי שיודע לתקשר עם המערכת המרכזית, אבל גם לתפקד בנפרד. זה אומר שאם הרכיב שמטפל בניתוח תמונות קורס, שאר המערכת ממשיכה לעבוד — בדיוק כמו שסרטן אמיתי יכול לשחרר צבת ולברוח מסכנה.</p>\n<p>מה שהפך את openclaw לטרנד מסחרר ב-2026 הוא שילוב של <strong>Local-First Architecture</strong> עם <strong>TypeScript Native</strong>. זה לא עוד wrapper סביב Python או Rust — זו מערכת שלמה שכתובה מקצה לקצה ב-TypeScript, מה שאומר שאתה מקבל טייפ-סייפטי אמיתי גם בקונפיגורציה וגם ב-runtime. הפרויקט נולד במקור כפרויקט צד של מהנדס בגוגל שרצה להריץ Llama 3 על לפטופ ישן מ-2018, והיום הוא כבר אקוסיסטם שלם.</p>\n<p><strong>מה שרוב המשתמשים לא יודעים:</strong> openclaw משתמש בטכניקה שנקראת <strong>&quot;Molting&quot;</strong> — היכולת לעדכן את המודלים בלי לאבד את ההקשר הנוכחי. בזמן ש-ChatGPT מאבד את הזיכרון שלך כל פעם שיש שדרוג, openclaw שומר על state תמידי, גם כשהמודל מתחלף מתחת לרגליים.</p>\n<p><strong>טיפ מקצועי:</strong> השם &quot;openclaw&quot; מגיע מהעובדה שהמערכת תמיד &quot;פתוחה&quot; — אין APIs סגורים, אין rate limits, ואתה יכול לחטט בפנים כמו שאתה חוטף בשר של לובסטר בחוף תל אביב.</p>\n<h2 id=\"s-2\">סטטיסטיקות וביצועים — המספרים לא משקרים</h2><p>כשמדברים על AI local, רוב האנשים חושבים על Ollama או LocalAI. אבל הביצועים של openclaw מפתיעים אפילו את הסקפטיים הגדולים ביותר:</p>\n<table>\n<thead>\n<tr>\n<th>מדד</th>\n<th>openclaw</th>\n<th>Ollama</th>\n<th>LocalAI</th>\n<th>LM Studio</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>זמן תגובה ראשוני (TTFT)</td>\n<td>45ms</td>\n<td>120ms</td>\n<td>180ms</td>\n<td>95ms</td>\n</tr>\n<tr>\n<td>שימוש בזיכרון (RAM)</td>\n<td>1.2GB</td>\n<td>2.8GB</td>\n<td>3.1GB</td>\n<td>2.4GB</td>\n</tr>\n<tr>\n<td>תמיכה ב-WebGPU</td>\n<td>✓ Native</td>\n<td>✗</td>\n<td>✓ חלקי</td>\n<td>✓</td>\n</tr>\n<tr>\n<td>Hot Reloading</td>\n<td>✓ Molting</td>\n<td>✗</td>\n<td>✗</td>\n<td>✗</td>\n</tr>\n<tr>\n<td>Size של Bundle</td>\n<td>12MB</td>\n<td>45MB</td>\n<td>180MB</td>\n<td>89MB</td>\n</tr>\n<tr>\n<td>TypeScript Native</td>\n<td>✓</td>\n<td>✗ (Go)</td>\n<td>✗ (C++)</td>\n<td>✗ (C++)</td>\n</tr>\n<tr>\n<td>Stars ב-GitHub</td>\n<td>369,384</td>\n<td>98,200</td>\n<td>24,500</td>\n<td>67,800</td>\n</tr>\n</tbody></table>\n<p>המספרים מדברים בעד עצמם: <strong>45ms time-to-first-token</strong> זה ביצוע שמתקרב ל-APIs מסחריים של OpenAI, רק שזה רץ על הלפטופ שלך בלי חיבור אינטרנט. החיסכון בזיכרון מגיע מהארכיטקטורה הייחודית של &quot;Claw Segments&quot; — כל רכיב נטען לזיכרון רק כשצריך אותו, בניגוד למתחרים שטוענים את כל המודל ל-RAM בבת אחת.</p>\n<h2 id=\"s-3\">דרישות מקדימות</h2><p>לפני שמתחילים לשחק עם הלובסטר, צריך להכין את האקווריום. זה לא סתם עוד npm install — יש כאן תלות בקומפוננטות system-level:</p>\n<ul>\n<li>🦀 <strong>Rust toolchain</strong> — גרסה 1.75 ומעלה (נדרש לקומפילציה של native modules)</li>\n<li>⬢ <strong>Node.js</strong> — גרסה 20.11.0 LTS או חדשה יותר (הכרחי לתמיכה ב-import assertions)</li>\n<li>📦 <strong>pnpm</strong> — גרסה 8.14.0+ (npm יכול לעבוד, אבל pnpm נדרש ל-workspace features)</li>\n<li>🐳 <strong>Docker</strong> — אופציונלי אבל מומלץ בחום (לסביבת sandboxing של המודלים)</li>\n<li>🎮 <strong>GPU Drivers</strong> — CUDA 12.1+ או Metal 3 (ל-macOS) או Vulkan 1.3 (ל-Linux)</li>\n<li>🔧 <strong>CMake</strong> — גרסה 3.27+ (לבניית ה-llama.cpp backend)</li>\n</ul>\n<p><strong>אזהרה חשובה:</strong> אם אתה על Windows, תצטרך WSL2. openclaw לא תומך ישירות ב-Windows Native בשל מגבלות של file system events. תתקין Ubuntu 22.04 על WSL2 ותעבוד משם.</p>\n<figure><img src=\"/blog-images/6acef7b0e54a25b1fd5f.webp\" alt=\"תקריב של יד שמחברת כבל USB‑C ל rack rack rack,, עםקתרק אורחור אורור של�ק,, הצגים שמציגים אייקוני גלגלי שיניים וגרפי אנליטיקה מופשטים, מדגים שלב התקנה של עוזר AI\" loading=\"lazy\" decoding=\"async\" width=\"1200\" height=\"675\"/><figcaption>תקריב של יד שמחברת כבל USB‑C ל rack rack rack,, עםקתרק אורחור אורור של�ק,, הצגים שמציגים אייקוני גלגלי שיניים וגרפי אנליטיקה מופשטים, מדגים שלב התקנה של עוזר AI</figcaption></figure>\n<h2 id=\"s-4\">התקנה שלב אחר שלב — 2026 Edition</h2><h3 id=\"s-5\">שלב 1: התקנת ה-CLI העולמי</h3><p>הכלי <code>claw</code> הוא המרכז של היקום. הוא מתקשר עם ה-registry, מנהל מודלים, ומפעיל את ה-dev server. ההתקנה משתמשת ב-curl pipe ל-shell, אבל אל דאגה — הקוד פתוח וניתן לבדיקה.</p>\n<pre><code class=\"language-bash\"># התקנת ה-CLI דרך ה-installer הרשמי\ncurl -fsSL https://openclaw.dev/install.sh | sh\n\n# או דרך Homebrew (ל-macOS/Linux)\nbrew tap openclaw/tap\nbrew install claw\n\n# בדיקה שההתקנה הצליחה\nclaw --version\n# צריך להחזיר: claw 2.4.1-lobster\n</code></pre>\n<p>מה שקורה כאן: הסקריפט מוריד את הבינארי המתאים למערכת ההפעלה שלך, ממקם אותו ב-<code>/usr/local/bin</code>, ויוצר את תיקיית ההגדרות ב-<code>~/.config/openclaw</code>.</p>\n<h3 id=\"s-6\">שלב 2: אתחול פרויקט חדש</h3><p>הפקודה <code>claw init</code> יוצרת את מבנה התיקיות הייחודי של openclaw. שים לב לסיומת <code>.claw</code> — זהו פורמט ה-config proprietary שמאפשר hot-reloading.</p>\n<pre><code class=\"language-bash\"># יצירת פרויקט חדש\nmkdir my-ai-assistant\ncd my-ai-assistant\nclaw init --template react-typescript --name &quot;MyLobster&quot;\n\n# התוצאה:\n# ├── claws/           # רכיבי ה-AI (כל &quot;צבת&quot; היא יכולת)\n# ├── shell/           # שכבת האבטחה וה-sandboxing\n# ├── molty/           # ניהול מצב ו-memory\n# └── openclaw.config.ts\n</code></pre>\n<h3 id=\"s-7\">שלב 3: התקנת המודל הבסיסי</h3><p>openclaw לא מגיע עם מודלים מובנים (זה חלק מהפילוסופיה של own-your-data). אתה צריך למשוך את המודל הרצוי מה-hub. אנחנו נשתמש ב-Mistral 7B instruct בגרסה המותאמת ל-4-bit:</p>\n<pre><code class=\"language-bash\"># משיכת מודל עם קוונטיזציה\nclaw pull mistral:7b-instruct-q4_K_M\n\n# המודל נשמר ב:\n# ~/.openclaw/models/mistral-7b-instruct-v0.2.Q4_K_M.gguf\n\n# בדיקת תקינות\nclaw verify mistral:7b-instruct-q4_K_M\n</code></pre>\n<h3 id=\"s-8\">שלב 4: הגדרת TypeScript Config</h3><p>הקובץ <code>openclaw.config.ts</code> הוא הלב של המערכת. כאן אתה מגדיר את ה-&quot;shell&quot; (מעטפת האבטחה) ואת ה-&quot;claws&quot; (היכולות):</p>\n<pre><code class=\"language-bash\"># יצירת קובץ ההגדרות\ncat &gt; openclaw.config.ts &lt;&lt; &#39;EOF&#39;\nimport { defineConfig } from &#39;@openclaw/core&#39;;\nimport { reactAdapter } from &#39;@openclaw/adapters/react&#39;;\n\nexport default defineConfig({\n  shell: {\n    security: &#39;strict&#39;,\n    sandbox: true,\n    memoryLimit: &#39;4GB&#39;\n  },\n  claws: [\n    &#39;./claws/chat&#39;,\n    &#39;./claws/vision&#39;,\n    &#39;./claws/memory&#39;\n  ],\n  model: {\n    provider: &#39;local&#39;,\n    path: &#39;mistral:7b-instruct-q4_K_M&#39;,\n    contextWindow: 8192,\n    temperature: 0.7\n  },\n  molty: {\n    persistence: &#39;memory&#39;,\n    autoSave: true,\n    compression: &#39;zstd&#39;\n  }\n});\nEOF\n</code></pre>\n<h3 id=\"s-9\">שלב 5: בניית ה-native bindings</h3><p>כאן נכנס Rust לתמונה. הפקודה <code>claw build</code> מקמפלת את ה-llama.cpp backend עם האופטימיזציות הספציפיות למכונה שלך:</p>\n<pre><code class=\"language-bash\"># בנייה עם תמיכה ב-GPU אם קיימת\nclaw build --features cuda\n\n# או ל-CPU בלבד (איטי יותר אבל עובד בכל מכונה)\nclaw build --features openblas\n\n# הבנייה יוצרת:\n# ./node_modules/.bin/openclaw-native.node\n</code></pre>\n<h3 id=\"s-10\">שלב 6: הפעלת הסביבה</h3><p>הפקודה <code>claw dev</code> מפעילה את שרת הפיתוח עם hot-reloading. כל שינוי בקוד מפעיל &quot;molting&quot; — החלפת קוד תוך כדי תנועה:</p>\n<pre><code class=\"language-bash\"># הפעלת dev server\nclaw dev --port 3000 --verbose\n\n# אתה אמור לראות:\n# 🦞 OpenClaw v2.4.1 initialized\n# 📦 Model loaded: mistral:7b-instruct (4096 ctx)\n# 🔧 Native bindings: CUDA enabled\n# 🚀 Server running at http://localhost:3000\n</code></pre>\n",
+ "toc": [
+  {
+   "id": "s-1",
+   "depth": 2,
+   "text": "מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?"
   },
-  "wordCount": 1060
+  {
+   "id": "s-2",
+   "depth": 2,
+   "text": "סטטיסטיקות וביצועים — המספרים לא משקרים"
+  },
+  {
+   "id": "s-3",
+   "depth": 2,
+   "text": "דרישות מקדימות"
+  },
+  {
+   "id": "s-4",
+   "depth": 2,
+   "text": "התקנה שלב אחר שלב — 2026 Edition"
+  },
+  {
+   "id": "s-5",
+   "depth": 3,
+   "text": "שלב 1: התקנת ה-CLI העולמי"
+  },
+  {
+   "id": "s-6",
+   "depth": 3,
+   "text": "שלב 2: אתחול פרויקט חדש"
+  },
+  {
+   "id": "s-7",
+   "depth": 3,
+   "text": "שלב 3: התקנת המודל הבסיסי"
+  },
+  {
+   "id": "s-8",
+   "depth": 3,
+   "text": "שלב 4: הגדרת TypeScript Config"
+  },
+  {
+   "id": "s-9",
+   "depth": 3,
+   "text": "שלב 5: בניית ה-native bindings"
+  },
+  {
+   "id": "s-10",
+   "depth": 3,
+   "text": "שלב 6: הפעלת הסביבה"
+  }
+ ],
+ "excerpt": "מדריך מקיף ומפורט על openclaw — Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 . כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
+ "date": "2026-05-07T17:18:39.992+00:00",
+ "updated": "2026-10-14T03:32:00.975+00:00",
+ "readTime": "5 דקות קריאה",
+ "wordCount": 1023,
+ "tags": [
+  "TypeScript",
+  "ai",
+  "assistant",
+  "crustacean",
+  "molty",
+  "openclaw",
+  "GitHub",
+  "מדריך",
+  "2026",
+  "Open Source"
+ ],
+ "category": "בינה מלאכותית",
+ "imageUrl": "/blog-images/6acef7adee3e4d828c8d.webp",
+ "heroAlt": "שולחן מודרני עם מחשב נייד אלגנטי, סמארטפון, ופינק לובסטר קטן על הקצה, מוקף בזרמי נתונים הולוגרפיים זוהרים וסמלים קוד מופשטים, מואר באור כחול רך, מייצג עוזר AI חוצת פלטפורמות",
+ "ogImage": "https://elyasharlabs.com/blog-images/6acef7ae01d752172ffa.jpg",
+ "ogDescription": "מדריך מקיף ומפורט על openclaw — Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 . כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
+ "keywords": [
+  "TypeScript",
+  "ai",
+  "assistant",
+  "crustacean",
+  "molty",
+  "openclaw",
+  "GitHub",
+  "מדריך",
+  "2026",
+  "Open Source",
+  "openclaw",
+  "התקנה",
+  "מדריך בעברית",
+  "בינה מלאכותית"
+ ],
+ "canonicalUrl": "https://elyasharlabs.com/blog/openclaw-1778174319992/",
+ "author": "יוסף אלישר",
+ "sources": [
+  "https://github.com/openclaw/openclaw"
+ ],
+ "jsonLd": {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "מה זה openclaw ולמה 369,384 מפתחים כבר משתמשים בו?",
+  "description": "מדריך מקיף ומפורט על openclaw — Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 . כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
+  "image": [
+   "https://elyasharlabs.com/blog-images/6acef7ae01d752172ffa.jpg",
+   "https://elyasharlabs.com/blog-images/6acef7adee3e4d828c8d.webp"
+  ],
+  "datePublished": "2026-05-07T17:18:39.992+00:00",
+  "dateModified": "2026-10-14T03:32:00.975+00:00",
+  "inLanguage": "he-IL",
+  "wordCount": 1023,
+  "mainEntityOfPage": "https://elyasharlabs.com/blog/openclaw-1778174319992/",
+  "keywords": "TypeScript, ai, assistant, crustacean, molty, openclaw, GitHub, מדריך, 2026, Open Source",
+  "author": {
+   "@type": "Person",
+   "name": "יוסף אלישר",
+   "url": "https://elyasharlabs.com"
+  },
+  "publisher": {
+   "@type": "Organization",
+   "name": "ElyasharLabs",
+   "url": "https://elyasharlabs.com"
+  }
+ }
 }

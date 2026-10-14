@@ -1,12 +1,73 @@
 {
-  "slug": "welcome",
-  "title": "ברוכים הבאים לבלוג הטכנולוגי שלי! 🤖",
-  "content": "<h2>מה תמצאו כאן?</h2><p>בבלוג הזה אני משתף תוכן אוטומטי על הטכנולוגיות החמות ביותר ב-GitHub. המערכת סורקת כל יום את המאגרים הפופולריים ביותר ויוצרת מדריכי התקנה מקיפים בעברית.</p><h2>איך זה עובד?</h2><ul><li>🔍 <strong>סריקה יומית:</strong> המערכת בודקת את הטרנדים ב-GitHub</li><li>🤖 <strong>בינה מלאכותית:</strong> יוצרת תוכן איכותי ומקיף</li><li>🎨 <strong>תמונות:</strong> מייצרת תמונות מרשימות לכל פוסט</li><li>🚀 <strong>פרסום אוטומטי:</strong> עולה ל-GitHub Pages מיד לאחר יצירה</li></ul><h2>נושאים שמכוסים</h2><p>הבלוג מתמקד ב:</p><ul><li>🐍 כלי Python פופולריים</li><li>⚡ ספריות JavaScript/TypeScript</li><li>🦀 כלים ב-Rust</li><li>🔧 כלי DevOps ואוטומציה</li><li>🧠 פרויקטי AI ו-Machine Learning</li></ul><p><strong>הישארו מעודכנים!</strong> פוסטים חדשים מדי יום.</p>",
-  "excerpt": "ברוכים הבאים לבלוג הטכנולוגי! כאן תמצאו מדריכים אוטומטיים על הכלים החמים ביותר ב-GitHub, שנכתבים על ידי AI ומתעדכנים יומית.",
-  "date": "2024-03-28T00:00:00.000Z",
-  "readTime": "3 דקות קריאה",
-  "tags": ["welcome", "blog", "automation", "github"],
-  "category": "כללי",
-  "githubUrl": "",
-  "source": "manual"
+ "slug": "welcome",
+ "title": "ברוכים הבאים לבלוג הטכנולוגי שלי! 🤖",
+ "content": "<h2 id=\"s-1\">מה תמצאו כאן?</h2><p>בבלוג הזה אני משתף תוכן אוטומטי על הטכנולוגיות החמות ביותר ב-GitHub. המערכת סורקת כל יום את המאגרים הפופולריים ביותר ויוצרת מדריכי התקנה מקיפים בעברית.</p>\n<h2 id=\"s-2\">איך זה עובד?</h2><ul>\n<li>🔍 <strong>סריקה יומית:</strong> המערכת בודקת את הטרנדים ב-GitHub</li>\n<li>🤖 <strong>בינה מלאכותית:</strong> יוצרת תוכן איכותי ומקיף</li>\n<li>🎨 <strong>תמונות:</strong> מייצרת תמונות מרשימות לכל פוסט</li>\n<li>🚀 <strong>פרסום אוטומטי:</strong> עולה ל-GitHub Pages מיד לאחר יצירה</li>\n</ul>\n<figure><img src=\"/blog-images/6acef7666db0db7f5fde.webp\" alt=\"תקריב של רובוט שמושך יד מכנית להצביע על דיאגרמת הולוגרפית צבעונית של מבנה ריפוזיטורי ב‑GitHub, עם קצוות וקישורים, כוס קפה ופנקס ברקע, ללא טקסט.\" loading=\"lazy\" decoding=\"async\" width=\"1200\" height=\"675\"/><figcaption>תקריב של רובוט שמושך יד מכנית להצביע על דיאגרמת הולוגרפית צבעונית של מבנה ריפוזיטורי ב‑GitHub, עם קצוות וקישורים, כוס קפה ופנקס ברקע, ללא טקסט.</figcaption></figure>\n<h2 id=\"s-3\">נושאים שמכוסים</h2><p>הבלוג מתמקד ב:</p>\n<ul>\n<li>🐍 כלי Python פופולריים</li>\n<li>⚡ ספריות JavaScript/TypeScript</li>\n<li>🦀 כלים ב-Rust</li>\n<li>🔧 כלי DevOps ואוטומציה</li>\n<li>🧠 פרויקטי AI ו-Machine Learning</li>\n</ul>\n<p><strong>הישארו מעודכנים!</strong> פוסטים חדשים מדי יום.</p>\n",
+ "toc": [
+  {
+   "id": "s-1",
+   "depth": 2,
+   "text": "מה תמצאו כאן?"
+  },
+  {
+   "id": "s-2",
+   "depth": 2,
+   "text": "איך זה עובד?"
+  },
+  {
+   "id": "s-3",
+   "depth": 2,
+   "text": "נושאים שמכוסים"
+  }
+ ],
+ "excerpt": "ברוכים הבאים לבלוג הטכנולוגי! כאן תמצאו מדריכים אוטומטיים על הכלים החמים ביותר ב-GitHub, שנכתבים על ידי AI ומתעדכנים יומית.",
+ "date": "2024-03-28T00:00:00.000+00:00",
+ "updated": "2026-10-14T03:30:46.483+00:00",
+ "readTime": "1 דקות קריאה",
+ "wordCount": 127,
+ "tags": [
+  "welcome",
+  "blog",
+  "automation",
+  "github"
+ ],
+ "category": "כללי",
+ "imageUrl": "/blog-images/6acef7642bc53cc2973c.webp",
+ "heroAlt": "משרד מודרני מואר עם מחשב נייד, רובוט ידידותי יושב לצידו, קטעי קוד הולוגרפיים מרחפים מעל המסך, כוס קפה מבעבעת, וסכךון קטן, ללא טקסט או לוגו.",
+ "ogImage": "https://elyasharlabs.com/blog-images/6acef76431e222bd1537.jpg",
+ "ogDescription": "ברוכים הבאים לבלוג הטכנולוגי! כאן תמצאו מדריכים אוטומטיים על הכלים החמים ביותר ב-GitHub, שנכתבים על ידי AI ומתעדכנים יומית.",
+ "keywords": [
+  "welcome",
+  "blog",
+  "automation",
+  "github"
+ ],
+ "canonicalUrl": "https://elyasharlabs.com/blog/welcome/",
+ "author": "יוסף אלישר",
+ "sources": [],
+ "jsonLd": {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ברוכים הבאים לבלוג הטכנולוגי שלי! 🤖",
+  "description": "ברוכים הבאים לבלוג הטכנולוגי! כאן תמצאו מדריכים אוטומטיים על הכלים החמים ביותר ב-GitHub, שנכתבים על ידי AI ומתעדכנים יומית.",
+  "image": [
+   "https://elyasharlabs.com/blog-images/6acef76431e222bd1537.jpg",
+   "https://elyasharlabs.com/blog-images/6acef7642bc53cc2973c.webp"
+  ],
+  "datePublished": "2024-03-28T00:00:00.000+00:00",
+  "dateModified": "2026-10-14T03:30:46.483+00:00",
+  "inLanguage": "he-IL",
+  "wordCount": 127,
+  "mainEntityOfPage": "https://elyasharlabs.com/blog/welcome/",
+  "keywords": "welcome, blog, automation, github",
+  "author": {
+   "@type": "Person",
+   "name": "יוסף אלישר",
+   "url": "https://elyasharlabs.com"
+  },
+  "publisher": {
+   "@type": "Organization",
+   "name": "ElyasharLabs",
+   "url": "https://elyasharlabs.com"
+  }
+ }
 }

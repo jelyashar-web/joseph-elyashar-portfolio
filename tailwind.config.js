@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Heebo', 'sans-serif'],
+        sans: ['var(--font-heebo)', 'Heebo', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: {

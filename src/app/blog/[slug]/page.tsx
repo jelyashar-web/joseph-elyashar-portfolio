@@ -1,261 +1,86 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Calendar, Clock, ArrowRight, Tag, Share2, Twitter, Linkedin, Facebook, BookOpen, Star, Code2 } from 'lucide-react'
-import Navigation from '../../../../components/Navigation'
-import CanvasBlockRenderer from '../../../../components/CanvasBlockRenderer'
-import CommentsSection from '../../../../components/CommentsSection'
-import { getPostBySlug, getAllSlugs } from '../../../lib/posts'
+import { getPostBySlug, getAllSlugs, getRelated } from '../../../lib/posts'
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
+export function generateStaticParams() { return getAllSlugs().map(slug => ({ slug })) }
 
-export function generateStaticParams() {
-  const slugs = getAllSlugs()
-  return slugs.map(slug => ({ slug }))
-}
-
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const post = getPostBySlug(params.slug)
-  if (!post) return { title: 'פוסט לא נמצא | יוסף אלישר' }
-
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params; const post = getPostBySlug(slug)
+  if (!post) return { title: 'פוסט לא נמצא' }
+  const desc = post.ogDescription || post.excerpt
   return {
-    title: post.ogTitle || post.title,
-    description: post.ogDescription || post.excerpt,
-    keywords: post.keywords?.join(', '),
-    alternates: { canonical: post.canonicalUrl },
-    openGraph: {
-      title: post.ogTitle || post.title,
-      description: post.ogDescription || post.excerpt,
-      type: 'article',
-      publishedTime: post.date,
-      modifiedTime: post.date,
-      tags: post.tags,
-      images: post.ogImage ? [post.ogImage] : undefined,
-      url: post.canonicalUrl,
-      locale: 'he_IL',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.ogTitle || post.title,
-      description: post.ogDescription || post.excerpt,
-      images: post.ogImage ? [post.ogImage] : undefined,
-    },
+    title: post.title, description: desc, keywords: post.keywords?.join(', '),
+    alternates: { canonical: `/blog/${post.slug}/` },
+    openGraph: { title: post.title, description: desc, type: 'article', publishedTime: post.date, modifiedTime: post.updated || post.date, tags: post.tags, images: post.ogImage ? [{ url: post.ogImage, width: 1200, height: 630, alt: post.heroAlt }] : undefined, url: `https://elyasharlabs.com/blog/${post.slug}/`, locale: 'he_IL' },
+    twitter: { card: 'summary_large_image', title: post.title, description: desc, images: post.ogImage ? [post.ogImage] : undefined },
     authors: [{ name: post.author || 'יוסף אלישר', url: 'https://elyasharlabs.com' }],
-    category: post.category,
   }
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params; const post = getPostBySlug(slug)
   if (!post) notFound()
-
-  const shareUrl = post.canonicalUrl || `https://elyasharlabs.com/blog/${post.slug}/`
-  const shareText = `קראתי על ${post.title} - מומלץ!`
-
-  // Breadcrumb JSON-LD
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'דף הבית',
-        item: 'https://elyasharlabs.com/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'בלוג',
-        item: 'https://elyasharlabs.com/blog/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: post.title,
-        item: post.canonicalUrl || `https://elyasharlabs.com/blog/${post.slug}/`,
-      },
-    ],
-  }
-
-  const allJsonLd = [breadcrumbJsonLd, ...(post.jsonLd ? [post.jsonLd] : [])]
-  const jsonLdScript = `<script type="application/ld+json">\n${JSON.stringify(allJsonLd)}\n</script>`
-
+  const url = `https://elyasharlabs.com/blog/${post.slug}/`
+  const related = getRelated(post)
+  const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'דף הבית', item: 'https://elyasharlabs.com/' },
+    { '@type': 'ListItem', position: 2, name: 'בלוג', item: 'https://elyasharlabs.com/blog/' },
+    { '@type': 'ListItem', position: 3, name: post.title, item: url }] }
+  const toc = (post.toc || []).filter(t => t.depth === 2)
+  const share = [
+    ['וואטסאפ', `https://wa.me/?text=${encodeURIComponent(post.title + ' ' + url)}`],
+    ['לינקדאין', `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`],
+    ['פייסבוק', `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`],
+    ['X', `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(url)}`],
+  ]
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: jsonLdScript }} />
-
-      <main className="min-h-screen bg-black">
-        <Navigation />
-
-        {/* Hero */}
-        <section className="relative pt-32 pb-16 overflow-hidden">
-          {post.imageUrl ? (
-            <div className="absolute inset-0">
-              <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover opacity-20" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/85 to-black" />
-            </div>
-          ) : (
-            <div className="absolute inset-0">
-              <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[200px]" />
-              <div className="absolute bottom-0 right-1/3 w-[600px] h-[600px] bg-cyan-600/20 rounded-full blur-[200px]" />
-            </div>
-          )}
-
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link href="/blog" className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors mb-6">
-              <ArrowRight className="w-4 h-4" />
-              חזרה לבלוג
-            </Link>
-
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 rounded-full bg-purple-600/20 text-purple-400 text-sm">{post.category || 'טכנולוגיה'}</span>
-              {post.wordCount && (
-                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-400 text-sm flex items-center gap-1">
-                  <BookOpen className="w-3 h-3" />
-                  {post.wordCount.toLocaleString()} מילים
-                </span>
-              )}
-            </div>
-
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400">
-                {post.title}
-              </span>
-            </h1>
-
-            <div className="flex flex-wrap items-center gap-6 text-gray-400 mb-8">
-              <span className="flex items-center gap-2">
-                <Calendar className="w-5 h-5" />
-                {new Date(post.date).toLocaleDateString('he-IL', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </span>
-              <span className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                {post.readTime}
-              </span>
-              {post.githubUrl && (
-                <a href={post.githubUrl} target="_blank" rel="noopener noreferrer"
-                   className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
-                  <Star className="w-5 h-5" />
-                  GitHub
-                </a>
-              )}
-            </div>
-
-            {post.tags && (
-              <div className="flex flex-wrap gap-2 mb-8">
-                {post.tags.map(tag => (
-                  <span key={tag} className="flex items-center gap-1 px-3 py-1 rounded-full bg-white/5 text-gray-400 text-sm">
-                    <Tag className="w-4 h-4" />
-                    {tag}
-                  </span>
-                ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([crumbs, post.jsonLd]).replace(/</g, '\\u003c') }} />
+      <div className="fixed top-0 inset-x-0 z-[60] h-1"><div id="rp" className="h-full bg-gradient-to-l from-cyan-400 to-violet-500" style={{ width: 0 }} /></div>
+      <script dangerouslySetInnerHTML={{ __html: `addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('rp').style.width=(100*h.scrollTop/(h.scrollHeight-innerHeight||1))+'%'},{passive:true})` }} />
+      <main className="min-h-screen pt-28 pb-24">
+        <article>
+          <header className="max-w-4xl mx-auto px-4 sm:px-6">
+            <nav className="text-sm text-gray-500 mb-5" aria-label="פירורי לחם"><Link href="/" className="hover:text-cyan-300">דף הבית</Link> / <Link href="/blog/" className="hover:text-cyan-300">בלוג</Link></nav>
+            <div className="flex flex-wrap gap-2 mb-4">{post.tags?.slice(0, 5).map(t => <span key={t} className="text-xs px-2.5 py-1 rounded-full bg-cyan-400/10 text-cyan-300">{t}</span>)}</div>
+            <h1 className="text-3xl md:text-5xl font-black leading-tight">{post.title}</h1>
+            {post.excerpt && <p className="text-lg md:text-xl text-gray-400 mt-4 leading-relaxed">{post.excerpt}</p>}
+            <p className="text-gray-500 text-sm mt-5">{post.author || 'יוסף אלישר'} · <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('he-IL', { year: 'numeric', month: 'long', day: 'numeric' })}</time> · {post.readTime}{post.wordCount ? ` · ${post.wordCount.toLocaleString('he-IL')} מילים` : ''}</p>
+          </header>
+          {post.imageUrl && <div className="max-w-5xl mx-auto px-4 sm:px-6 mt-8"><img src={post.imageUrl} alt={post.heroAlt || post.title} width={1600} height={900} className="w-full rounded-3xl border border-white/10 aspect-video object-cover" fetchPriority="high" /></div>}
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-10 grid lg:grid-cols-[1fr_260px] gap-10">
+            <div className="post-body min-w-0" dangerouslySetInnerHTML={{ __html: post.content }} />
+            <aside className="hidden lg:block">
+              <div className="sticky top-28 space-y-6">
+                {toc.length > 1 && <nav aria-label="תוכן עניינים" className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                  <p className="font-bold mb-3">בכתבה</p>
+                  <ol className="space-y-2 text-sm text-gray-400">{toc.map(t => <li key={t.id}><a href={`#${t.id}`} className="hover:text-cyan-300">{t.text}</a></li>)}</ol>
+                </nav>}
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                  <p className="font-bold mb-3">שיתוף</p>
+                  <div className="flex flex-wrap gap-2">{share.map(([n, h]) => <a key={n} href={h} target="_blank" rel="noopener" className="text-sm px-3 py-1.5 rounded-lg bg-white/5 hover:bg-cyan-400/20">{n}</a>)}</div>
+                </div>
               </div>
-            )}
+            </aside>
           </div>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-10 lg:hidden flex flex-wrap gap-2">{share.map(([n, h]) => <a key={n} href={h} target="_blank" rel="noopener" className="text-sm px-3 py-1.5 rounded-lg bg-white/5">{n}</a>)}</div>
+        </article>
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 mt-14 rounded-3xl p-8 bg-gradient-to-l from-cyan-500/15 to-violet-600/15 border border-white/10">
+          <h2 className="text-2xl font-bold">רוצים סוכן AI כזה לעסק שלכם?</h2>
+          <p className="text-gray-300 mt-2">אני בונה צ׳אטבוטים, סוכנים ואוטומציות שעובדים מהיום הראשון.</p>
+          <Link href="/#contact" className="inline-block mt-5 px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold hover:bg-cyan-300">לשיחת ייעוץ</Link>
         </section>
-
-        {/* Progress bar */}
-        <div className="sticky top-0 z-40 h-1 bg-gray-900">
-          <div className="h-full bg-gradient-to-r from-purple-500 to-cyan-500 w-0 transition-all duration-100" id="reading-progress" />
-        </div>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              const progressBar = document.getElementById('reading-progress');
-              if (!progressBar) return;
-              function updateProgress() {
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-                progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
-              }
-              window.addEventListener('scroll', updateProgress, { passive: true });
-              updateProgress();
-            })();
-          `
-        }} />
-
-        {/* Content */}
-        <section className="relative pb-24">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <article className="glass rounded-2xl p-8 md:p-12 border border-white/10">
-              {/* Build unified HTML from sections or use full content */}
-              {(() => {
-                const html = post.sections && post.sections.length > 0
-                  ? post.sections.map((section) => {
-                      let sectionHtml = `<h2>${section.title}</h2>`
-                      if (section.imageUrl) {
-                        sectionHtml += `<img src="${section.imageUrl}" alt="${section.title}" loading="lazy" class="w-full rounded-xl my-4" />`
-                      }
-                      // Strip duplicate Pollinations images from section HTML
-                      const cleanHtml = section.html.replace(/<div class="section-image">[\s\S]*?<\/div>/g, '')
-                      sectionHtml += cleanHtml
-                      return sectionHtml
-                    }).join('<hr />')
-                  : post.content
-                return <CanvasBlockRenderer content={html} />
-              })()}
-
-              {/* Footer */}
-              {post.githubUrl && (
-                <div className="mt-12 pt-8 border-t border-white/10">
-                  <a href={post.githubUrl} target="_blank" rel="noopener noreferrer"
-                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-700 text-white transition-colors"
-                  >
-                    <Code2 className="w-5 h-5" />
-                    צפה בקוד המקור ב-GitHub
-                  </a>
-                </div>
-              )}
-            </article>
-
-            {/* Share */}
-            <div className="mt-8 glass rounded-2xl p-6 border border-white/10">
-              <h3 className="text-white font-bold mb-4 flex items-center gap-2">
-                <Share2 className="w-5 h-5" />
-                שתף את הפוסט
-              </h3>
-              <div className="flex gap-3">
-                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
-                   target="_blank" rel="noopener noreferrer"
-                   className="p-3 rounded-xl bg-white/5 hover:bg-blue-500/20 border border-white/10 hover:border-blue-500/50 transition-all"
-                >
-                  <Twitter className="w-5 h-5 text-blue-400" />
-                </a>
-                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
-                   target="_blank" rel="noopener noreferrer"
-                   className="p-3 rounded-xl bg-white/5 hover:bg-blue-700/20 border border-white/10 hover:border-blue-700/50 transition-all"
-                >
-                  <Linkedin className="w-5 h-5 text-blue-600" />
-                </a>
-                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
-                   target="_blank" rel="noopener noreferrer"
-                   className="p-3 rounded-xl bg-white/5 hover:bg-blue-600/20 border border-white/10 hover:border-blue-600/50 transition-all"
-                >
-                  <Facebook className="w-5 h-5 text-blue-500" />
-                </a>
-              </div>
-            </div>
-
-            {/* Author */}
-            <div className="mt-8 glass rounded-2xl p-6 border border-white/10">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 flex items-center justify-center text-white font-bold text-xl">
-                  י
-                </div>
-                <div>
-                  <p className="text-white font-bold">{post.author || 'יוסף אלישר'}</p>
-                  <p className="text-gray-400 text-sm">מפתח Full-Stack & AI | בונה מערכות חכמות</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Comments */}
-            <CommentsSection slug={post.slug} />
-          </div>
-        </section>
+        {related.length > 0 && <section className="max-w-6xl mx-auto px-4 sm:px-6 mt-16">
+          <h2 className="text-2xl font-bold mb-6">עוד מאמרים שיעניינו אתכם</h2>
+          <div className="grid md:grid-cols-3 gap-6">{related.map(r => (
+            <Link key={r.slug} href={`/blog/${r.slug}/`} className="group rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] hover:border-cyan-400/40 transition">
+              {r.imageUrl && <img src={r.imageUrl} alt={r.heroAlt || r.title} loading="lazy" className="aspect-video object-cover w-full" />}
+              <div className="p-4"><h3 className="font-bold leading-snug group-hover:text-cyan-300">{r.title}</h3><p className="text-xs text-gray-500 mt-2">{r.readTime}</p></div>
+            </Link>))}</div>
+        </section>}
       </main>
     </>
   )

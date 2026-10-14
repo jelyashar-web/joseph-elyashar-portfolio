@@ -1,0 +1,7 @@
+name = "elyasharlabs"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "out"
+# Secrets (set in Pages project → Settings → Variables): TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, OMNIROUTE_API_KEY
+[vars]
+OMNIROUTE_BASE_URL = "https://api.elyasharlabs.com/v1"
+OMNIROUTE_MODEL = "golem-fast"

@@ -3,21 +3,9 @@
 
 echo "🚀 Starting Image Generation API with Ollama..."
 
-# Check if required environment variables are set
-if [ -z "$OLLAMA_API_KEY" ]; then
-    echo "⚠️  OLLAMA_API_KEY not set, using default"
-    export OLLAMA_API_KEY="92da2aca5f5c44509b40a428ce9bba14"
-fi
-
-if [ -z "$TELEGRAM_BOT_TOKEN" ]; then
-    echo "⚠️  TELEGRAM_BOT_TOKEN not set, using default"
-    export TELEGRAM_BOT_TOKEN="7908824633:AAHryoTh2q0ieiavwyYU44oNMiwMAtF-A9o"
-fi
-
-if [ -z "$TELEGRAM_CHAT_ID" ]; then
-    echo "⚠️  TELEGRAM_CHAT_ID not set, using default"
-    export TELEGRAM_CHAT_ID="6457374757"
-fi
+: "${OLLAMA_API_KEY:?Set OLLAMA_API_KEY in the environment or .env.local}"
+: "${TELEGRAM_BOT_TOKEN:?Set TELEGRAM_BOT_TOKEN in the environment or .env.local}"
+: "${TELEGRAM_CHAT_ID:?Set TELEGRAM_CHAT_ID in the environment or .env.local}"
 
 echo "📡 Ollama API URL: ${OLLAMA_API_URL:-https://api.ollama.ai/v1}"
 echo "📁 Images directory: $(pwd)/../public/images/generated"

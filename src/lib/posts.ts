@@ -22,6 +22,10 @@ export interface Post {
   wordCount?: number
   sections?: { id: string; title: string; html: string; imageUrl?: string }[]
   jsonLd?: object
+  toc?: { id: string; depth: number; text: string }[]
+  heroAlt?: string
+  sources?: string[]
+  updated?: string
 }
 
 const postsDir = path.join(process.cwd(), 'content', 'posts')
@@ -86,4 +90,11 @@ export function getAllSlugs(): string[] {
   } catch (error) {
     return []
   }
+}
+
+export function getRelated(post: Post, n = 3): Post[] {
+  const tags = new Set(post.tags || [])
+  return getAllPosts().filter(p => p.slug !== post.slug)
+    .map(p => ({ p, s: (p.tags || []).filter(t => tags.has(t)).length + (p.category === post.category ? 1 : 0) }))
+    .sort((a, b) => b.s - a.s || new Date(b.p.date).getTime() - new Date(a.p.date).getTime()).slice(0, n).map(x => x.p)
 }

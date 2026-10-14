@@ -1,0 +1,110 @@
+{
+  "slug": "flutter-1778152111191",
+  "title": "flutter: המדריך המקיף להתקנה ושימוש מקצועי",
+  "content": "<article class=\"ultra-guide\" data-repo=\"flutter\" data-stars=\"176203\">\n<div class=\"article-meta\">\n  <span class=\"meta-tag\">⭐ 176,203 Stars</span>\n  <span class=\"meta-tag\">🔤 Dart</span>\n  <span class=\"meta-tag\">📅 7.3.2015</span>\n</div>\n\n<section id=\"intro\" class=\"article-section\">\n  <h2 class=\"section-title\">מה זה flutter?</h2>\n  <div class=\"section-image\"><img src=\"/images/generated/flutter-1778152111191-section-0.png\" alt=\"מה זה flutter?\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><p><strong>flutter</strong> הוא Flutter makes it easy and fast to build beautiful apps for mobile and beyond עם 176,203 כוכבים ב-GitHub.</p></div>\n</section>\n\n<section id=\"installation\" class=\"article-section\">\n  <h2 class=\"section-title\">התקנה</h2>\n  <div class=\"section-image\"><img src=\"/images/generated/flutter-1778152111191-section-1.png\" alt=\"התקנה\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><pre><code class=\"language-bash\">git clone https://github.com/flutter/flutter.git\ncd flutter\n\n# קרא את README.md להוראות\ncat README.md</code></pre></div>\n</section>\n\n<section id=\"usage\" class=\"article-section\">\n  <h2 class=\"section-title\">דוגמאות שימוש</h2>\n  <div class=\"section-image\"><img src=\"/images/generated/flutter-1778152111191-section-2.png\" alt=\"דוגמאות שימוש\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><p>הנה דוגמה בסיסית:</p><pre><code class=\"language-dart\"># דוגמה בסיסית\nflutter --help</code></pre></div>\n</section>\n<div class=\"article-footer\">\n  <p>📚 פוסט זה נכתב אוטומטית על ידי <strong>מכונת התוכן Ultra Content Machine</strong> של יוסף אלישר</p>\n  <p>⭐ מקור: <a href=\"https://github.com/flutter/flutter\" target=\"_blank\" rel=\"noopener\">flutter/flutter</a> | 176,203 כוכבים</p>\n</div>\n</article>",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "מה זה flutter?",
+      "html": "<p><strong>flutter</strong> הוא Flutter makes it easy and fast to build beautiful apps for mobile and beyond עם 176,203 כוכבים ב-GitHub.</p>",
+      "imagePrompt": "flutter tech visualization",
+      "imageUrl": "/images/generated/flutter-1778152111191-section-0.png"
+    },
+    {
+      "id": "installation",
+      "title": "התקנה",
+      "html": "<pre><code class=\"language-bash\">git clone https://github.com/flutter/flutter.git\ncd flutter\n\n# קרא את README.md להוראות\ncat README.md</code></pre>",
+      "imagePrompt": "Terminal installation commands",
+      "imageUrl": "/images/generated/flutter-1778152111191-section-1.png"
+    },
+    {
+      "id": "usage",
+      "title": "דוגמאות שימוש",
+      "html": "<p>הנה דוגמה בסיסית:</p><pre><code class=\"language-dart\"># דוגמה בסיסית\nflutter --help</code></pre>",
+      "imagePrompt": "Code examples",
+      "imageUrl": "/images/generated/flutter-1778152111191-section-2.png"
+    }
+  ],
+  "excerpt": "מדריך מקיף על flutter — Flutter makes it easy and fast to build beautiful apps for mobile and beyond. כולל התקנה, קוד, טיפים ודוגמאות.",
+  "date": "2026-05-07T11:08:31.191Z",
+  "readTime": "1 דקות קריאה",
+  "tags": [
+    "Dart",
+    "android",
+    "app-framework",
+    "cross-platform",
+    "dart",
+    "dart-platform",
+    "GitHub",
+    "מדריך",
+    "2026",
+    "Open Source"
+  ],
+  "category": "פיתוח Web",
+  "githubUrl": "https://github.com/flutter/flutter",
+  "source": "github-trending",
+  "imageUrl": "/images/generated/flutter-1778152111191-hero.png",
+  "author": "יוסף אלישר",
+  "ogTitle": "flutter: המדריך המקיף להתקנה ושימוש מקצועי",
+  "ogDescription": "מדריך מקיף על flutter — Flutter makes it easy and fast to build beautiful apps for mobile and beyond. כולל התקנה, קוד, טיפים ודוגמאות.",
+  "ogImage": "/images/generated/flutter-1778152111191-hero.png",
+  "keywords": [
+    "Dart",
+    "android",
+    "app-framework",
+    "cross-platform",
+    "dart",
+    "dart-platform",
+    "GitHub",
+    "מדריך",
+    "2026",
+    "Open Source",
+    "flutter",
+    "flutter",
+    "התקנה",
+    "מדריך בעברית",
+    "פיתוח Web"
+  ],
+  "canonicalUrl": "https://elyasharlabs.com/blog/flutter-1778152111191/",
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "flutter: המדריך המקיף להתקנה ושימוש מקצועי",
+    "description": "מדריך מקיף על flutter — Flutter makes it easy and fast to build beautiful apps for mobile and beyond. כולל התקנה, קוד, טיפים ודוגמאות.",
+    "author": {
+      "@type": "Person",
+      "name": "יוסף אלישר",
+      "url": "https://elyasharlabs.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ElyasharLabs",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://elyasharlabs.com/logo.png"
+      }
+    },
+    "datePublished": "2026-05-07T11:08:31.191Z",
+    "dateModified": "2026-05-07T11:08:31.191Z",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://elyasharlabs.com/blog/flutter-1778152111191/"
+    },
+    "image": "/images/generated/flutter-1778152111191-hero.png",
+    "keywords": "Dart, android, app-framework, cross-platform, dart, dart-platform, GitHub, מדריך, 2026, Open Source, flutter, flutter, התקנה, מדריך בעברית, פיתוח Web",
+    "articleSection": "פיתוח Web",
+    "about": {
+      "@type": "SoftwareApplication",
+      "name": "flutter",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Cross-platform",
+      "softwareVersion": "Latest",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "176203"
+      }
+    }
+  },
+  "wordCount": 131
+}

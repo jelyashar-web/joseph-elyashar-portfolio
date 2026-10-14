@@ -60,9 +60,9 @@ python-api/
 
 **Configuration:**
 ```bash
-OLLAMA_API_KEY=92da2aca5f5c44509b40a428ce9bba14
-TELEGRAM_BOT_TOKEN=7908824633:AAHryoTh2q0ieiavwyYU44oNMiwMAtF-A9o
-TELEGRAM_CHAT_ID=6457374757
+OLLAMA_API_KEY=your_ollama_api_key_here
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+TELEGRAM_CHAT_ID=your_telegram_chat_id_here
 ```
 
 ### 2. **Advanced Telegram Bot Integration**
@@ -319,11 +319,11 @@ From conversation:
 
 ## 📞 CONTACT & CREDENTIALS
 
-**API Keys:** (From user conversation)
-- Ollama: `92da2aca5f5c44509b40a428ce9bba14`
-- Telegram Bot: `7908824633:AAHryoTh2q0ieiavwyYU44oNMiwMAtF-A9o`
-- Telegram Chat ID: `6457374757`
-- Kimi: `sk_fZiGxQHOcb5JdjINqrYga4rp0DJZ3B3J` (in .env.local)
+**API Keys:** (keep only in local env / secrets store — never commit)
+- Ollama: `your_ollama_api_key_here`
+- Telegram Bot: `your_telegram_bot_token_here`
+- Telegram Chat ID: `your_telegram_chat_id_here`
+- Kimi: `your_kimi_api_key_here` (in .env.local)
 
 **User:**
 - Email: Jelyashar@gmail.com

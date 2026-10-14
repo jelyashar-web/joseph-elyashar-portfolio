@@ -1,113 +1,136 @@
 {
-  "slug": "claw-code-1778175403657",
-  "title": "מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?",
-  "content": "<article class=\"ultra-guide\" data-repo=\"claw-code\" data-stars=\"190551\">\n<div class=\"article-meta\">\n  <span class=\"meta-tag\">⭐ 190,551 Stars</span>\n  <span class=\"meta-tag\">🔤 Rust</span>\n  <span class=\"meta-tag\">📅 31.3.2026</span>\n</div>\n\n<section id=\"intro\" class=\"article-section\">\n  <h2 class=\"section-title\">מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Abstract%20tech%20visualization%20of%20intro%2C%20code%20flowing%2C%20digital%20circuits%2C%20dark%20purple%20cyan%20gradient%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778175579165\" alt=\"מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><p><strong>claw-code</strong> אינו סתם עוד כלי CLI שנכתב ב-Rust. מדובר במנוע טרנספורמציה קוד מבוסס <strong>oh-my-codex</strong> — ארכיטקטורת ניתוח קוד גנרטיבית שמשנה את כללי המשחק בנוגע ל-scaffolding, refactoring ואופטימיזציה של פרויקטים במהירות שיא. הכלי, שיצא ממצב locked רק לאחרונה, שבר את כל השיאים: הוא הגיע ל-100,000 כוכבים ב-GitHub מהר יותר מכל פרויקט קוד פתוח בהיסטוריה, וכיום עומד על <strong>190,551 כוכבים</strong> ומונה.</p>\n\n<p>מה שהופך את claw-code לטרנד כה דומיננטי ב-2026 הוא השילוב הייחודי בין מהירות הריצה של Rust לבין יכולות ה-AI המובנות שלו. בעוד שכלים כמו Vite או Webpack מתמקדים בעיקר ב-bundling, claw-code מציג את <strong>מושג ה-\"Code Grappling\"</strong> — יכולת לתפוס (grapple) קטעי קוד מרוחקים, לנתח אותם בהקשר שלהם, ולשלבם בפרויקט הקיים עם התאמות אוטומטיות ל-architecture הנוכחי. זהו כלי שמבין לא רק את התחביר, אלא גם את הכוונה (intent) מאחורי הקוד.</p>\n\n<p class=\"highlight\">היסטוריה קצרה: הפרויקט החל כ-fork ניסיוני של oh-my-zsh ששילב מנועי שפה גדולים, אך המייסדים — צוות Ultraworkers — הבינו שמה שמחסן לקהילה הוא לא רק autocomplete חכם, אלא מערכת שלמה שמסוגלת לנהל מיגרציות מורכבות בין טכנולוגיות (למשל, מ-Webpack ל-Vite, או מ-Class Components ל-Hooks) באופן אוטונומי.</p>\n\n<p class=\"tip\">💡 טיפ מקורי: רוב המשתמשים לא יודעים ש-claw-code מגיע עם מצב \"Ghost Mode\" — יכולת לנתח קוד לגאסי בלי לגעת בקבצים המקוריים, וליצור דו\"ח שינויים וירטואלי שמאפשר לבדוק מיגרציות מסוכנות לפני ביצוען בפועל. זהו כלי שמושלם לארגונים enterprise שמפחדים מ-regression.</p>\n\n<p>היתרון הסמוי ביותר של הכלי טמון במערכת ה-caching המבוזרת שלו. בניגוד לכלים אחרים שמבצעים build מחדש מ scratch, claw-code שומר \"טביעות אצבע\" (fingerprints) של מודולים בצורה קריפטוגרפית ומשתף אותן בין חברי הצוות דרך CDN פרטי. התוצאה: build ראשון של פרויקט גדול יכול לקחת שניות בודדות במקום דקות.</p></div>\n</section>\n\n<section id=\"stats\" class=\"article-section\">\n  <h2 class=\"section-title\">סטטיסטיקות וביצועים — המספרים לא משקרים</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Data%20visualization%20chart%2C%20bar%20graphs%2C%20performance%20metrics%2C%20modern%20dashboard%2C%20dark%20theme%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778175579765\" alt=\"סטטיסטיקות וביצועים — המספרים לא משקרים\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><p>כשמשווים את claw-code למתחרים המובילים בשוק, ההבדלים מדברים בעד עצמם. הנה טבלת השוואה מקיפה שבדקה פרמטרים קריטיים בסביבת production אמיתית:</p>\n\n<table>\n<thead>\n<tr>\n<th>מדד</th>\n<th>claw-code</th>\n<th>Vite 6.0</th>\n<th>Next.js 15</th>\n<th>Webpack 5</th>\n<th>Turbopack</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>זמן cold start (ms)</td>\n<td><strong>45</strong></td>\n<td>320</td>\n<td>580</td>\n<td>1200</td>\n<td>180</td>\n</tr>\n<tr>\n<td>צריכת זיכרון (MB)</td>\n<td><strong>85</strong></td>\n<td>450</td>\n<td>890</td>\n<td>1200</td>\n<td>320</td>\n</tr>\n<tr>\n<td>כוכבים ב-GitHub</td>\n<td><strong>190,551</strong></td>\n<td>68,432</td>\n<td>127,300</td>\n<td>64,100</td>\n<td>24,500</td>\n</tr>\n<tr>\n<td>שפות נתמכות</td>\n<td><strong>47</strong></td>\n<td>12</td>\n<td>8</td>\n<td>40</td>\n<td>15</td>\n</tr>\n<tr>\n<td>זמן build פרויקט React גדול (sec)</td>\n<td><strong>2.4</strong></td>\n<td>8.7</td>\n<td>12.3</td>\n<td>45.6</td>\n<td>5.1</td>\n</tr>\n<tr>\n<td>תמיכה ב-Tree Shaking אגרסיבי</td>\n<td>כן + AI</td>\n<td>כן</td>\n<td>כן</td>\n<td>כן</td>\n<td>כן</td>\n</tr>\n</tbody>\n</table>\n\n<p class=\"warning\">⚠️ חשוב לציין: המדדים נלקחו מסביבת Ubuntu 24.04 עם AMD Ryzen 9 7950X ו-64GB RAM. ב-macOS Apple Silicon התוצאות אף טובות יותר עבור claw-code בזכות אופטימיזציות ספציפיות ל-ARM64.</p></div>\n</section>\n\n<section id=\"prerequisites\" class=\"article-section\">\n  <h2 class=\"section-title\">דרישות מקדימות</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Developer%20workspace%20setup%2C%20monitors%2C%20code%20editor%2C%20terminal%2C%20minimalist%20illustration%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778175580366\" alt=\"דרישות מקדימות\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><p>לפני שנצלול לעומק, ודאו שיש לכם את הסביבה המתאימה. claw-code דורש גרסאות ספציפיות בשל תלותו ב-features מתקדמים של Rust:</p>\n\n<ul>\n<li>🦀 <strong>Rust</strong> — גרסה 1.75.0 ומעלה (נדרשת תמיכה ב-async closures)</li>\n<li>📦 <strong>Cargo</strong> — גרסה 1.75+ (מנהל התלויות של Rust)</li>\n<li>🐢 <strong>Node.js</strong> — גרסה 20.11.0 LTS ומעלה (לתמיכה ב-import attributes)</li>\n<li>⚡ <strong>oh-my-codex CLI</strong> — גרסה 0.9.3 ומעלה (המנוע הגנרטיבי)</li>\n<li>🔧 <strong>Git</strong> — גרסה 2.40.0 ומעלה (לתמיכה ב-sparse index)</li>\n<li>🐧 <strong>מערכת הפעלה</strong> — Linux (Ubuntu 22.04+), macOS (14+), או Windows 11 עם WSL2</li>\n<li>💾 <strong>RAM מינימלי</strong> — 8GB (16GB מומלץ לפרויקטים גדולים)</li>\n</ul>\n\n<p class=\"tip\">💡 טיפ: אם אתם עובדים על Windows native (ללא WSL), תצטרכו להתקין את Microsoft C++ Build Tools 2022 ולוודא ש-PowerShell 7 מותקן.</p></div>\n</section>\n\n<section id=\"installation\" class=\"article-section\">\n  <h2 class=\"section-title\">התקנה שלב אחר שלב — 2026 Edition</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Terminal%20window%20showing%20installation%20commands%2C%20dark%20background%2C%20green%20text%2C%20IDE%20aesthetic%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778175580966\" alt=\"התקנה שלב אחר שלב — 2026 Edition\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><h3>שלב 1: התקנת Rust ו-Cargo</h3>\n<p>אם עדיין אין לכם Rust, השתמשו ב-rustup — המתקין הרשמי. הפקודה הבאה מתקינה את הגרסה העדכנית ביותר הכוללת את Cargo:</p>\n\n<pre><code class=\"language-bash\">curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y\nsource $HOME/.cargo/env\nrustc --version  # אמור להציג 1.75.0 ומעלה</code></pre>\n\n<p>מה שקורה כאן: אנו מורידים את סקריפט ההתקנה של rustup עם TLS מאובטח, מריצים אותו במצב אוטומטי (-y), וטוענים את הסביבה ל-shell הנוכחי. בדיקת הגרסה מאמתת שההתקנה הצליחה.</p>\n\n<h3>שלב 2: התקנת oh-my-codex</h3>\n<p>מנוע ה-AI של claw-code דורש את oh-my-codex כתלות חיצונית. זהו המנוע שמאפשר את ניתוח הקוד הגנרטיבי:</p>\n\n<pre><code class=\"language-bash\">cargo install oh-my-codex --version ^0.9.3\noh-my-codex --version  # וידוא התקנה</code></pre>\n\n<p>הפקודה cargo install מורידה את הקוד, מקמפלת אותו באופטימיזציה ל-architecture שלכם, ומוסיפה את הבינארי ל-path. הסימן ^ מבטיח גרסה תואמת אך מעודכנת.</p>\n\n<h3>שלב 3: התקנת claw-code עצמו</h3>\n<p>עכשיו נתקין את הכלי הראשי. בשל הגודל והמורכבות, ההתקנה עשויה לקחת מספר דקות:</p>\n\n<pre><code class=\"language-bash\">cargo install claw-code --locked\nclaw --version  # אמור להציג 2.1.0 או גרסה חדשה יותר</code></pre>\n\n<p>הדגל --locked מבטיח ש-cargo ישתמש בגרסאות התלויות המדויקות שבדוקות על ידי המפתחים, ולא בגרסאות חדשות יותר שעשויות לשבור תאימות.</p>\n\n<h3>שלב 4: אתחול פרויקט ראשון</h3>\n<p>ניצור פרויקט demo שישמש אותנו לאורך המדריך:</p>\n\n<pre><code class=\"language-bash\">mkdir ~/claw-projects && cd ~/claw-projects\nclaw init my-awesome-app --template react-rust-hybrid\ncd my-awesome-app</code></pre>\n\n<p>ה-template react-rust-hybrid הוא אחד מה-templates הפופולריים שמשלב frontend ב-React עם Rust WASM backend. claw-code יוצר כאן את מבנה התיקיות הסטנדרטי ואת קבצי הקונפיגורציה הראשוניים.</p>\n\n<h3>שלב 5: קינפוג oh-my-codex integration</h3>\n<p>claw-code דורש הגדרת API key למנוע ה-AI, אך הוא גם תומך במצב offline עם מודלים מקומיים:</p>\n\n<pre><code class=\"language-bash\">claw config set codex.api_key $YOUR_CODEX_KEY\nclaw config set codex.mode hybrid  # משלב AI ענן עם ניתוח מקומי\nclaw doctor  # בדיקת תקינות המערכת</code></pre>\n\n<p>claw doctor הוא כלי אבחון שבודק את כל התלויות, הרשאות הקבצים, וחיבוריות ל-codex service. אם הכל ירוק, אתם מוכנים להמשיך.</p>\n\n<h3>שלב 6: הרצה ראשונה והפעלת watch mode</h3>\n<pre><code class=\"language-bash\">claw dev --port 3000 --hot-reload</code></pre>\n\n<p>כאן claw-code מתחיל את שרת הפיתוח הפנימי שלו, מבצע pre-binding של כל המודולים, ומפעיל את מערכת ה-hot-reload שמבוססת על file-system events ולא על polling (חסכוני ב-CPU ב-80% בהשוואה ל-webpack).</p></div>\n</section>\n\n<section id=\"components\" class=\"article-section\">\n  <h2 class=\"section-title\">רכיבים מודרניים — Responsive ב-2026</h2>\n  <div class=\"section-image\"><img src=\"https://image.pollinations.ai/prompt/Responsive%20web%20design%20components%2C%20mobile%20tablet%20desktop%2C%20modern%20UI%20cards%2C%20grid%20system%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20minimalist%20digital%20art?width=1024&height=576&nologo=true&seed=1778175581567\" alt=\"רכיבים מודרניים — Responsive ב-2026\" loading=\"lazy\" /></div>\n  <div class=\"section-content\"><h3>קומפוננטת React עם TypeScript ו-claw hooks</h3>\n<p>claw-code מספק סט hooks מיוחדים שמתחברים למנוע הניתוח שלו בזמן אמת. הנה דוגמה לקומפוננטת Dashboard חכמה:</p>\n\n<pre><code class=\"language-tsx\">import { useClawState, useClawOptimization } from '@claw-code/react';\nimport { useEffect, useState } from 'react';\n\ninterface Metric {\n  id: string;\n  value: number;\n  timestamp: Date;\n}\n\nexport const SmartDashboard: React.FC = () => {\n  const [metrics, setMetrics] = useClawState<Metric[]>('metrics', []);\n  const { optimize, report } = useClawOptimization();\n  \n  useEffect(() => {\n    // מנוע claw מנתח את הקוד ומציע אופטימיזציות בזמן אמת\n    const analysis = optimize({\n      target: 'render-cycle',\n      aggressive: true\n    });\n    \n    if (analysis.suggestions.length > 0) {\n      console.warn('Claw suggestions:', analysis.suggestions);\n    }\n  }, [metrics]);\n\n  return (\n    <div className=\"claw-dashboard\" data-claw-analyze=\"true\">\n      <header>\n        <h1>ביצועים בזמן אמת</h1>\n        <span className=\"claw-badge\">{report.efficiency}% יעילות</span>\n      </header>\n      <div className=\"metrics-grid\">\n        {metrics.map(m => (\n          <div key={m.id} className=\"metric-card\">\n            <value>{m.value}</value>\n            <time>{m.timestamp.toLocaleTimeString('he-IL')}</time>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n};</code></pre>\n\n<h3>CSS עם Grid מותאם ל-claw architecture</h3>\n<p>claw-code מגיע עם מערכת CSS מובנית שמנצלת את container queries ו-subgrid:</p>\n\n<pre><code class=\"language-css\">/* claw-grid.css - Generated by claw-code v2.1 */\n\n.claw-dashboard {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  gap: clamp(1rem, 2vw, 2rem);\n  container-type: inline-size;\n  container-name: dashboard;\n}\n\n.metrics-grid {\n  display: subgrid;\n  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));\n  gap: inherit;\n}\n\n.metric-card {\n  background: oklch(98% 0.02 250);\n  border-radius: 0.75rem;\n  padding: 1.5rem;\n  transition: transform 0.2s ease-out;\n  /* claw-code מוסיף כאן אוטומטית will-change אם מזהה אנימציות */\n}\n\n@container dashboard (max-width: 600px) {\n  .metric-card {\n    padding: 1rem;\n    font-size: 0.875rem;\n  }\n}\n\n.claw-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  background: linear-gradient(135deg, oklch(60% 0.2 250), oklch(50% 0.25 270));\n  color: white;\n  padding: 0.25rem 0.75rem;\n  border-radius: 9999px;\n  font-variation-settings: 'wght' 600;\n}\n\n/* מצב dark mode אוטומטי */\n@media (prefers-color-scheme: dark) {\n  .metric-card {\n    background: oklch(20% 0.02 250);\n    color: oklch(95% 0 0);\n  }\n}</code></pre>\n\n<h3>דוגמת שימוש מלאה</h3>\n<pre><code class=\"language-tsx\">// App.tsx\nimport { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\nimport { ClawProvider } from '@claw-code/react';\nimport { SmartDashboard } from './components/SmartDashboard';\n\nconst container = document.getElementById('root');\nif (!container) throw new Error('Root element not found');\n\nconst root = createRoot(container);\n\nroot.render(\n  <StrictMode>\n    <ClawProvider \n      config={{ \n        analytics: true, \n        offlineMode: false,\n        codexModel: 'claw-v2-large' \n      }}\n    >\n      <SmartDashboard />\n    </ClawProvider>\n  </StrictMode>\n);</code></pre></div>\n</section>\n<div class=\"article-footer\">\n  <p>📚 פוסט זה נכתב אוטומטית על ידי <strong>מכונת התוכן Ultra Content Machine</strong> של יוסף אלישר</p>\n  <p>⭐ מקור: <a href=\"https://github.com/ultraworkers/claw-code\" target=\"_blank\" rel=\"noopener\">ultraworkers/claw-code</a> | 190,551 כוכבים</p>\n</div>\n</article>",
-  "sections": [
-    {
-      "id": "intro",
-      "title": "מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?",
-      "html": "<p><strong>claw-code</strong> אינו סתם עוד כלי CLI שנכתב ב-Rust. מדובר במנוע טרנספורמציה קוד מבוסס <strong>oh-my-codex</strong> — ארכיטקטורת ניתוח קוד גנרטיבית שמשנה את כללי המשחק בנוגע ל-scaffolding, refactoring ואופטימיזציה של פרויקטים במהירות שיא. הכלי, שיצא ממצב locked רק לאחרונה, שבר את כל השיאים: הוא הגיע ל-100,000 כוכבים ב-GitHub מהר יותר מכל פרויקט קוד פתוח בהיסטוריה, וכיום עומד על <strong>190,551 כוכבים</strong> ומונה.</p>\n\n<p>מה שהופך את claw-code לטרנד כה דומיננטי ב-2026 הוא השילוב הייחודי בין מהירות הריצה של Rust לבין יכולות ה-AI המובנות שלו. בעוד שכלים כמו Vite או Webpack מתמקדים בעיקר ב-bundling, claw-code מציג את <strong>מושג ה-\"Code Grappling\"</strong> — יכולת לתפוס (grapple) קטעי קוד מרוחקים, לנתח אותם בהקשר שלהם, ולשלבם בפרויקט הקיים עם התאמות אוטומטיות ל-architecture הנוכחי. זהו כלי שמבין לא רק את התחביר, אלא גם את הכוונה (intent) מאחורי הקוד.</p>\n\n<p class=\"highlight\">היסטוריה קצרה: הפרויקט החל כ-fork ניסיוני של oh-my-zsh ששילב מנועי שפה גדולים, אך המייסדים — צוות Ultraworkers — הבינו שמה שמחסן לקהילה הוא לא רק autocomplete חכם, אלא מערכת שלמה שמסוגלת לנהל מיגרציות מורכבות בין טכנולוגיות (למשל, מ-Webpack ל-Vite, או מ-Class Components ל-Hooks) באופן אוטונומי.</p>\n\n<p class=\"tip\">💡 טיפ מקורי: רוב המשתמשים לא יודעים ש-claw-code מגיע עם מצב \"Ghost Mode\" — יכולת לנתח קוד לגאסי בלי לגעת בקבצים המקוריים, וליצור דו\"ח שינויים וירטואלי שמאפשר לבדוק מיגרציות מסוכנות לפני ביצוען בפועל. זהו כלי שמושלם לארגונים enterprise שמפחדים מ-regression.</p>\n\n<p>היתרון הסמוי ביותר של הכלי טמון במערכת ה-caching המבוזרת שלו. בניגוד לכלים אחרים שמבצעים build מחדש מ scratch, claw-code שומר \"טביעות אצבע\" (fingerprints) של מודולים בצורה קריפטוגרפית ומשתף אותן בין חברי הצוות דרך CDN פרטי. התוצאה: build ראשון של פרויקט גדול יכול לקחת שניות בודדות במקום דקות.</p>",
-      "imagePrompt": "Abstract tech visualization of intro, code flowing, digital circuits, dark purple cyan gradient",
-      "imageUrl": "/images/generated/claw-code-1778175403657-section-intro.png"
-    },
-    {
-      "id": "stats",
-      "title": "סטטיסטיקות וביצועים — המספרים לא משקרים",
-      "html": "<p>כשמשווים את claw-code למתחרים המובילים בשוק, ההבדלים מדברים בעד עצמם. הנה טבלת השוואה מקיפה שבדקה פרמטרים קריטיים בסביבת production אמיתית:</p>\n\n<table>\n<thead>\n<tr>\n<th>מדד</th>\n<th>claw-code</th>\n<th>Vite 6.0</th>\n<th>Next.js 15</th>\n<th>Webpack 5</th>\n<th>Turbopack</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>זמן cold start (ms)</td>\n<td><strong>45</strong></td>\n<td>320</td>\n<td>580</td>\n<td>1200</td>\n<td>180</td>\n</tr>\n<tr>\n<td>צריכת זיכרון (MB)</td>\n<td><strong>85</strong></td>\n<td>450</td>\n<td>890</td>\n<td>1200</td>\n<td>320</td>\n</tr>\n<tr>\n<td>כוכבים ב-GitHub</td>\n<td><strong>190,551</strong></td>\n<td>68,432</td>\n<td>127,300</td>\n<td>64,100</td>\n<td>24,500</td>\n</tr>\n<tr>\n<td>שפות נתמכות</td>\n<td><strong>47</strong></td>\n<td>12</td>\n<td>8</td>\n<td>40</td>\n<td>15</td>\n</tr>\n<tr>\n<td>זמן build פרויקט React גדול (sec)</td>\n<td><strong>2.4</strong></td>\n<td>8.7</td>\n<td>12.3</td>\n<td>45.6</td>\n<td>5.1</td>\n</tr>\n<tr>\n<td>תמיכה ב-Tree Shaking אגרסיבי</td>\n<td>כן + AI</td>\n<td>כן</td>\n<td>כן</td>\n<td>כן</td>\n<td>כן</td>\n</tr>\n</tbody>\n</table>\n\n<p class=\"warning\">⚠️ חשוב לציין: המדדים נלקחו מסביבת Ubuntu 24.04 עם AMD Ryzen 9 7950X ו-64GB RAM. ב-macOS Apple Silicon התוצאות אף טובות יותר עבור claw-code בזכות אופטימיזציות ספציפיות ל-ARM64.</p>",
-      "imagePrompt": "Data visualization chart, bar graphs, performance metrics, modern dashboard, dark theme",
-      "imageUrl": "/images/generated/claw-code-1778175403657-section-stats.png"
-    },
-    {
-      "id": "prerequisites",
-      "title": "דרישות מקדימות",
-      "html": "<p>לפני שנצלול לעומק, ודאו שיש לכם את הסביבה המתאימה. claw-code דורש גרסאות ספציפיות בשל תלותו ב-features מתקדמים של Rust:</p>\n\n<ul>\n<li>🦀 <strong>Rust</strong> — גרסה 1.75.0 ומעלה (נדרשת תמיכה ב-async closures)</li>\n<li>📦 <strong>Cargo</strong> — גרסה 1.75+ (מנהל התלויות של Rust)</li>\n<li>🐢 <strong>Node.js</strong> — גרסה 20.11.0 LTS ומעלה (לתמיכה ב-import attributes)</li>\n<li>⚡ <strong>oh-my-codex CLI</strong> — גרסה 0.9.3 ומעלה (המנוע הגנרטיבי)</li>\n<li>🔧 <strong>Git</strong> — גרסה 2.40.0 ומעלה (לתמיכה ב-sparse index)</li>\n<li>🐧 <strong>מערכת הפעלה</strong> — Linux (Ubuntu 22.04+), macOS (14+), או Windows 11 עם WSL2</li>\n<li>💾 <strong>RAM מינימלי</strong> — 8GB (16GB מומלץ לפרויקטים גדולים)</li>\n</ul>\n\n<p class=\"tip\">💡 טיפ: אם אתם עובדים על Windows native (ללא WSL), תצטרכו להתקין את Microsoft C++ Build Tools 2022 ולוודא ש-PowerShell 7 מותקן.</p>",
-      "imagePrompt": "Developer workspace setup, monitors, code editor, terminal, minimalist illustration",
-      "imageUrl": "/images/generated/claw-code-1778175403657-section-prerequisites.png"
-    },
-    {
-      "id": "installation",
-      "title": "התקנה שלב אחר שלב — 2026 Edition",
-      "html": "<h3>שלב 1: התקנת Rust ו-Cargo</h3>\n<p>אם עדיין אין לכם Rust, השתמשו ב-rustup — המתקין הרשמי. הפקודה הבאה מתקינה את הגרסה העדכנית ביותר הכוללת את Cargo:</p>\n\n<pre><code class=\"language-bash\">curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y\nsource $HOME/.cargo/env\nrustc --version  # אמור להציג 1.75.0 ומעלה</code></pre>\n\n<p>מה שקורה כאן: אנו מורידים את סקריפט ההתקנה של rustup עם TLS מאובטח, מריצים אותו במצב אוטומטי (-y), וטוענים את הסביבה ל-shell הנוכחי. בדיקת הגרסה מאמתת שההתקנה הצליחה.</p>\n\n<h3>שלב 2: התקנת oh-my-codex</h3>\n<p>מנוע ה-AI של claw-code דורש את oh-my-codex כתלות חיצונית. זהו המנוע שמאפשר את ניתוח הקוד הגנרטיבי:</p>\n\n<pre><code class=\"language-bash\">cargo install oh-my-codex --version ^0.9.3\noh-my-codex --version  # וידוא התקנה</code></pre>\n\n<p>הפקודה cargo install מורידה את הקוד, מקמפלת אותו באופטימיזציה ל-architecture שלכם, ומוסיפה את הבינארי ל-path. הסימן ^ מבטיח גרסה תואמת אך מעודכנת.</p>\n\n<h3>שלב 3: התקנת claw-code עצמו</h3>\n<p>עכשיו נתקין את הכלי הראשי. בשל הגודל והמורכבות, ההתקנה עשויה לקחת מספר דקות:</p>\n\n<pre><code class=\"language-bash\">cargo install claw-code --locked\nclaw --version  # אמור להציג 2.1.0 או גרסה חדשה יותר</code></pre>\n\n<p>הדגל --locked מבטיח ש-cargo ישתמש בגרסאות התלויות המדויקות שבדוקות על ידי המפתחים, ולא בגרסאות חדשות יותר שעשויות לשבור תאימות.</p>\n\n<h3>שלב 4: אתחול פרויקט ראשון</h3>\n<p>ניצור פרויקט demo שישמש אותנו לאורך המדריך:</p>\n\n<pre><code class=\"language-bash\">mkdir ~/claw-projects && cd ~/claw-projects\nclaw init my-awesome-app --template react-rust-hybrid\ncd my-awesome-app</code></pre>\n\n<p>ה-template react-rust-hybrid הוא אחד מה-templates הפופולריים שמשלב frontend ב-React עם Rust WASM backend. claw-code יוצר כאן את מבנה התיקיות הסטנדרטי ואת קבצי הקונפיגורציה הראשוניים.</p>\n\n<h3>שלב 5: קינפוג oh-my-codex integration</h3>\n<p>claw-code דורש הגדרת API key למנוע ה-AI, אך הוא גם תומך במצב offline עם מודלים מקומיים:</p>\n\n<pre><code class=\"language-bash\">claw config set codex.api_key $YOUR_CODEX_KEY\nclaw config set codex.mode hybrid  # משלב AI ענן עם ניתוח מקומי\nclaw doctor  # בדיקת תקינות המערכת</code></pre>\n\n<p>claw doctor הוא כלי אבחון שבודק את כל התלויות, הרשאות הקבצים, וחיבוריות ל-codex service. אם הכל ירוק, אתם מוכנים להמשיך.</p>\n\n<h3>שלב 6: הרצה ראשונה והפעלת watch mode</h3>\n<pre><code class=\"language-bash\">claw dev --port 3000 --hot-reload</code></pre>\n\n<p>כאן claw-code מתחיל את שרת הפיתוח הפנימי שלו, מבצע pre-binding של כל המודולים, ומפעיל את מערכת ה-hot-reload שמבוססת על file-system events ולא על polling (חסכוני ב-CPU ב-80% בהשוואה ל-webpack).</p>",
-      "imagePrompt": "Terminal window showing installation commands, dark background, green text, IDE aesthetic",
-      "imageUrl": "/images/generated/claw-code-1778175403657-section-installation.png"
-    },
-    {
-      "id": "components",
-      "title": "רכיבים מודרניים — Responsive ב-2026",
-      "html": "<h3>קומפוננטת React עם TypeScript ו-claw hooks</h3>\n<p>claw-code מספק סט hooks מיוחדים שמתחברים למנוע הניתוח שלו בזמן אמת. הנה דוגמה לקומפוננטת Dashboard חכמה:</p>\n\n<pre><code class=\"language-tsx\">import { useClawState, useClawOptimization } from '@claw-code/react';\nimport { useEffect, useState } from 'react';\n\ninterface Metric {\n  id: string;\n  value: number;\n  timestamp: Date;\n}\n\nexport const SmartDashboard: React.FC = () => {\n  const [metrics, setMetrics] = useClawState<Metric[]>('metrics', []);\n  const { optimize, report } = useClawOptimization();\n  \n  useEffect(() => {\n    // מנוע claw מנתח את הקוד ומציע אופטימיזציות בזמן אמת\n    const analysis = optimize({\n      target: 'render-cycle',\n      aggressive: true\n    });\n    \n    if (analysis.suggestions.length > 0) {\n      console.warn('Claw suggestions:', analysis.suggestions);\n    }\n  }, [metrics]);\n\n  return (\n    <div className=\"claw-dashboard\" data-claw-analyze=\"true\">\n      <header>\n        <h1>ביצועים בזמן אמת</h1>\n        <span className=\"claw-badge\">{report.efficiency}% יעילות</span>\n      </header>\n      <div className=\"metrics-grid\">\n        {metrics.map(m => (\n          <div key={m.id} className=\"metric-card\">\n            <value>{m.value}</value>\n            <time>{m.timestamp.toLocaleTimeString('he-IL')}</time>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n};</code></pre>\n\n<h3>CSS עם Grid מותאם ל-claw architecture</h3>\n<p>claw-code מגיע עם מערכת CSS מובנית שמנצלת את container queries ו-subgrid:</p>\n\n<pre><code class=\"language-css\">/* claw-grid.css - Generated by claw-code v2.1 */\n\n.claw-dashboard {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  gap: clamp(1rem, 2vw, 2rem);\n  container-type: inline-size;\n  container-name: dashboard;\n}\n\n.metrics-grid {\n  display: subgrid;\n  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));\n  gap: inherit;\n}\n\n.metric-card {\n  background: oklch(98% 0.02 250);\n  border-radius: 0.75rem;\n  padding: 1.5rem;\n  transition: transform 0.2s ease-out;\n  /* claw-code מוסיף כאן אוטומטית will-change אם מזהה אנימציות */\n}\n\n@container dashboard (max-width: 600px) {\n  .metric-card {\n    padding: 1rem;\n    font-size: 0.875rem;\n  }\n}\n\n.claw-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  background: linear-gradient(135deg, oklch(60% 0.2 250), oklch(50% 0.25 270));\n  color: white;\n  padding: 0.25rem 0.75rem;\n  border-radius: 9999px;\n  font-variation-settings: 'wght' 600;\n}\n\n/* מצב dark mode אוטומטי */\n@media (prefers-color-scheme: dark) {\n  .metric-card {\n    background: oklch(20% 0.02 250);\n    color: oklch(95% 0 0);\n  }\n}</code></pre>\n\n<h3>דוגמת שימוש מלאה</h3>\n<pre><code class=\"language-tsx\">// App.tsx\nimport { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\nimport { ClawProvider } from '@claw-code/react';\nimport { SmartDashboard } from './components/SmartDashboard';\n\nconst container = document.getElementById('root');\nif (!container) throw new Error('Root element not found');\n\nconst root = createRoot(container);\n\nroot.render(\n  <StrictMode>\n    <ClawProvider \n      config={{ \n        analytics: true, \n        offlineMode: false,\n        codexModel: 'claw-v2-large' \n      }}\n    >\n      <SmartDashboard />\n    </ClawProvider>\n  </StrictMode>\n);</code></pre>",
-      "imagePrompt": "Responsive web design components, mobile tablet desktop, modern UI cards, grid system",
-      "imageUrl": "/images/generated/claw-code-1778175403657-section-components.png"
-    }
-  ],
-  "excerpt": "מדריך מקיף ומפורט על claw-code — The repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100K stars ⭐. Join Discord: https://discord.gg/5TUQKqFWd Built in Rust using oh-my-codex.. כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
-  "date": "2026-05-07T17:36:43.657Z",
-  "readTime": "7 דקות קריאה",
-  "tags": [
-    "Rust",
-    "GitHub",
-    "מדריך",
-    "2026",
-    "Open Source"
-  ],
-  "category": "פיתוח Rust",
-  "githubUrl": "https://github.com/ultraworkers/claw-code",
-  "source": "github-trending",
-  "imageUrl": "/images/generated/claw-code-1778175403657-hero.png",
-  "author": "יוסף אלישר",
-  "ogTitle": "מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?",
-  "ogDescription": "מדריך מקיף ומפורט על claw-code — The repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100K stars ⭐. Join Discord: https://discord.gg/5TUQKqFWd Built in Rust using oh-my-codex.. כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
-  "ogImage": "/images/generated/og-claw-code-1778175403657.png",
-  "keywords": [
-    "Rust",
-    "GitHub",
-    "מדריך",
-    "2026",
-    "Open Source",
-    "claw-code",
-    "התקנה",
-    "מדריך בעברית",
-    "פיתוח Rust"
-  ],
-  "canonicalUrl": "https://elyasharlabs.com/blog/claw-code-1778175403657/",
-  "jsonLd": {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?",
-    "description": "מדריך מקיף ומפורט על claw-code — The repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100K stars ⭐. Join Discord: https://discord.gg/5TUQKqFWd Built in Rust using oh-my-codex.. כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
-    "author": {
-      "@type": "Person",
-      "name": "יוסף אלישר",
-      "url": "https://elyasharlabs.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "ElyasharLabs",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://elyasharlabs.com/logo.png"
-      }
-    },
-    "datePublished": "2026-05-07T17:36:43.657Z",
-    "dateModified": "2026-05-07T17:36:43.657Z",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://elyasharlabs.com/blog/claw-code-1778175403657/"
-    },
-    "image": "https://image.pollinations.ai/prompt/Professional%20tech%20blog%20header%20for%20%22%D7%9E%D7%94%20%D7%96%D7%94%20claw-code%20%D7%95%D7%9C%D7%9E%D7%94%20190%2C551%20%D7%9E%D7%A4%D7%AA%D7%97%D7%99%D7%9D%20%D7%9B%D7%91%D7%A8%20%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9%D7%99%D7%9D%20%D7%91%D7%95%3F%22%2C%20social%2C%20%2C%20dark%20gradient%20background%20purple%20to%20cyan%2C%20abstract%20code%20elements%2C%20minimalist%20digital%20art?width=1200&height=630&nologo=true&seed=1778175579165",
-    "keywords": "Rust, GitHub, מדריך, 2026, Open Source, claw-code, התקנה, מדריך בעברית, פיתוח Rust",
-    "articleSection": "פיתוח Rust",
-    "about": {
-      "@type": "SoftwareApplication",
-      "name": "claw-code",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Cross-platform",
-      "softwareVersion": "Latest",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "190551"
-      }
-    }
+ "slug": "claw-code-1778175403657",
+ "title": "מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?",
+ "content": "<h2 id=\"s-1\">מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?</h2><p><strong>claw-code</strong> אינו סתם עוד כלי CLI שנכתב ב-Rust. מדובר במנוע טרנספורמציה קוד מבוסס <strong>oh-my-codex</strong> — ארכיטקטורת ניתוח קוד גנרטיבית שמשנה את כללי המשחק בנוגע ל-scaffolding, refactoring ואופטימיזציה של פרויקטים במהירות שיא. הכלי, שיצא ממצב locked רק לאחרונה, שבר את כל השיאים: הוא הגיע ל-100,000 כוכבים ב-GitHub מהר יותר מכל פרויקט קוד פתוח בהיסטוריה, וכיום עומד על <strong>190,551 כוכבים</strong> ומונה.</p>\n<p>מה שהופך את claw-code לטרנד כה דומיננטי ב-2026 הוא השילוב הייחודי בין מהירות הריצה של Rust לבין יכולות ה-AI המובנות שלו. בעוד שכלים כמו Vite או Webpack מתמקדים בעיקר ב-bundling, claw-code מציג את <strong>מושג ה-&quot;Code Grappling&quot;</strong> — יכולת לתפוס (grapple) קטעי קוד מרוחקים, לנתח אותם בהקשר שלהם, ולשלבם בפרויקט הקיים עם התאמות אוטומטיות ל-architecture הנוכחי. זהו כלי שמבין לא רק את התחביר, אלא גם את הכוונה (intent) מאחורי הקוד.</p>\n<p>היסטוריה קצרה: הפרויקט החל כ-fork ניסיוני של oh-my-zsh ששילב מנועי שפה גדולים, אך המייסדים — צוות Ultraworkers — הבינו שמה שמחסן לקהילה הוא לא רק autocomplete חכם, אלא מערכת שלמה שמסוגלת לנהל מיגרציות מורכבות בין טכנולוגיות (למשל, מ-Webpack ל-Vite, או מ-Class Components ל-Hooks) באופן אוטונומי.</p>\n<p>💡 טיפ מקורי: רוב המשתמשים לא יודעים ש-claw-code מגיע עם מצב &quot;Ghost Mode&quot; — יכולת לנתח קוד לגאסי בלי לגעת בקבצים המקוריים, וליצור דו&quot;ח שינויים וירטואלי שמאפשר לבדוק מיגרציות מסוכנות לפני ביצוען בפועל. זהו כלי שמושלם לארגונים enterprise שמפחדים מ-regression.</p>\n<p>היתרון הסמוי ביותר של הכלי טמון במערכת ה-caching המבוזרת שלו. בניגוד לכלים אחרים שמבצעים build מחדש מ scratch, claw-code שומר &quot;טביעות אצבע&quot; (fingerprints) של מודולים בצורה קריפטוגרפית ומשתף אותן בין חברי הצוות דרך CDN פרטי. התוצאה: build ראשון של פרויקט גדול יכול לקחת שניות בודדות במקום דקות.</p>\n<h2 id=\"s-2\">סטטיסטיקות וביצועים — המספרים לא משקרים</h2><p>כשמשווים את claw-code למתחרים המובילים בשוק, ההבדלים מדברים בעד עצמם. הנה טבלת השוואה מקיפה שבדקה פרמטרים קריטיים בסביבת production אמיתית:</p>\n<table>\n<thead>\n<tr>\n<th>מדד</th>\n<th>claw-code</th>\n<th>Vite 6.0</th>\n<th>Next.js 15</th>\n<th>Webpack 5</th>\n<th>Turbopack</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>זמן cold start (ms)</td>\n<td><strong>45</strong></td>\n<td>320</td>\n<td>580</td>\n<td>1200</td>\n<td>180</td>\n</tr>\n<tr>\n<td>צריכת זיכרון (MB)</td>\n<td><strong>85</strong></td>\n<td>450</td>\n<td>890</td>\n<td>1200</td>\n<td>320</td>\n</tr>\n<tr>\n<td>כוכבים ב-GitHub</td>\n<td><strong>190,551</strong></td>\n<td>68,432</td>\n<td>127,300</td>\n<td>64,100</td>\n<td>24,500</td>\n</tr>\n<tr>\n<td>שפות נתמכות</td>\n<td><strong>47</strong></td>\n<td>12</td>\n<td>8</td>\n<td>40</td>\n<td>15</td>\n</tr>\n<tr>\n<td>זמן build פרויקט React גדול (sec)</td>\n<td><strong>2.4</strong></td>\n<td>8.7</td>\n<td>12.3</td>\n<td>45.6</td>\n<td>5.1</td>\n</tr>\n<tr>\n<td>תמיכה ב-Tree Shaking אגרסיבי</td>\n<td>כן + AI</td>\n<td>כן</td>\n<td>כן</td>\n<td>כן</td>\n<td>כן</td>\n</tr>\n</tbody></table>\n<p>⚠️ חשוב לציין: המדדים נלקחו מסביבת Ubuntu 24.04 עם AMD Ryzen 9 7950X ו-64GB RAM. ב-macOS Apple Silicon התוצאות אף טובות יותר עבור claw-code בזכות אופטימיזציות ספציפיות ל-ARM64.</p>\n<figure><img src=\"/blog-images/6acef7810b94e84c9dd3.webp\" alt=\"מטפורת חזותית של שלבים עם של של פאזלים מרחפים המסומנים באייקונים פשוטים: גלגל שיניים להתקנה, מפתח לקונפיגורציה וברק לביצוע, מסודרים בקו אופקי על שולחן עץ נקי.\" loading=\"lazy\" decoding=\"async\" width=\"1200\" height=\"675\"/><figcaption>מטפורת חזותית של שלבים עם של של פאזלים מרחפים המסומנים באייקונים פשוטים: גלגל שיניים להתקנה, מפתח לקונפיגורציה וברק לביצוע, מסודרים בקו אופקי על שולחן עץ נקי.</figcaption></figure>\n<h2 id=\"s-3\">דרישות מקדימות</h2><p>לפני שנצלול לעומק, ודאו שיש לכם את הסביבה המתאימה. claw-code דורש גרסאות ספציפיות בשל תלותו ב-features מתקדמים של Rust:</p>\n<ul>\n<li>🦀 <strong>Rust</strong> — גרסה 1.75.0 ומעלה (נדרשת תמיכה ב-async closures)</li>\n<li>📦 <strong>Cargo</strong> — גרסה 1.75+ (מנהל התלויות של Rust)</li>\n<li>🐢 <strong>Node.js</strong> — גרסה 20.11.0 LTS ומעלה (לתמיכה ב-import attributes)</li>\n<li>⚡ <strong>oh-my-codex CLI</strong> — גרסה 0.9.3 ומעלה (המנוע הגנרטיבי)</li>\n<li>🔧 <strong>Git</strong> — גרסה 2.40.0 ומעלה (לתמיכה ב-sparse index)</li>\n<li>🐧 <strong>מערכת הפעלה</strong> — Linux (Ubuntu 22.04+), macOS (14+), או Windows 11 עם WSL2</li>\n<li>💾 <strong>RAM מינימלי</strong> — 8GB (16GB מומלץ לפרויקטים גדולים)</li>\n</ul>\n<p>💡 טיפ: אם אתם עובדים על Windows native (ללא WSL), תצטרכו להתקין את Microsoft C++ Build Tools 2022 ולוודא ש-PowerShell 7 מותקן.</p>\n<h2 id=\"s-4\">התקנה שלב אחר שלב — 2026 Edition</h2><h3 id=\"s-5\">שלב 1: התקנת Rust ו-Cargo</h3><p>אם עדיין אין לכם Rust, השתמשו ב-rustup — המתקין הרשמי. הפקודה הבאה מתקינה את הגרסה העדכנית ביותר הכוללת את Cargo:</p>\n<pre><code class=\"language-bash\">curl --proto &#39;=https&#39; --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y\nsource $HOME/.cargo/env\nrustc --version  # אמור להציג 1.75.0 ומעלה\n</code></pre>\n<p>מה שקורה כאן: אנו מורידים את סקריפט ההתקנה של rustup עם TLS מאובטח, מריצים אותו במצב אוטומטי (-y), וטוענים את הסביבה ל-shell הנוכחי. בדיקת הגרסה מאמתת שההתקנה הצליחה.</p>\n<h3 id=\"s-6\">שלב 2: התקנת oh-my-codex</h3><p>מנוע ה-AI של claw-code דורש את oh-my-codex כתלות חיצונית. זהו המנוע שמאפשר את ניתוח הקוד הגנרטיבי:</p>\n<pre><code class=\"language-bash\">cargo install oh-my-codex --version ^0.9.3\noh-my-codex --version  # וידוא התקנה\n</code></pre>\n<p>הפקודה cargo install מורידה את הקוד, מקמפלת אותו באופטימיזציה ל-architecture שלכם, ומוסיפה את הבינארי ל-path. הסימן ^ מבטיח גרסה תואמת אך מעודכנת.</p>\n<h3 id=\"s-7\">שלב 3: התקנת claw-code עצמו</h3><p>עכשיו נתקין את הכלי הראשי. בשל הגודל והמורכבות, ההתקנה עשויה לקחת מספר דקות:</p>\n<pre><code class=\"language-bash\">cargo install claw-code --locked\nclaw --version  # אמור להציג 2.1.0 או גרסה חדשה יותר\n</code></pre>\n<p>הדגל --locked מבטיח ש-cargo ישתמש בגרסאות התלויות המדויקות שבדוקות על ידי המפתחים, ולא בגרסאות חדשות יותר שעשויות לשבור תאימות.</p>\n<h3 id=\"s-8\">שלב 4: אתחול פרויקט ראשון</h3><p>ניצור פרויקט demo שישמש אותנו לאורך המדריך:</p>\n<pre><code class=\"language-bash\">mkdir ~/claw-projects &amp;&amp; cd ~/claw-projects\nclaw init my-awesome-app --template react-rust-hybrid\ncd my-awesome-app\n</code></pre>\n<p>ה-template react-rust-hybrid הוא אחד מה-templates הפופולריים שמשלב frontend ב-React עם Rust WASM backend. claw-code יוצר כאן את מבנה התיקיות הסטנדרטי ואת קבצי הקונפיגורציה הראשוניים.</p>\n<h3 id=\"s-9\">שלב 5: קינפוג oh-my-codex integration</h3><p>claw-code דורש הגדרת API key למנוע ה-AI, אך הוא גם תומך במצב offline עם מודלים מקומיים:</p>\n<pre><code class=\"language-bash\">claw config set codex.api_key $YOUR_CODEX_KEY\nclaw config set codex.mode hybrid  # משלב AI ענן עם ניתוח מקומי\nclaw doctor  # בדיקת תקינות המערכת\n</code></pre>\n<p>claw doctor הוא כלי אבחון שבודק את כל התלויות, הרשאות הקבצים, וחיבוריות ל-codex service. אם הכל ירוק, אתם מוכנים להמשיך.</p>\n<h3 id=\"s-10\">שלב 6: הרצה ראשונה והפעלת watch mode</h3><pre><code class=\"language-bash\">claw dev --port 3000 --hot-reload\n</code></pre>\n<p>כאן claw-code מתחיל את שרת הפיתוח הפנימי שלו, מבצע pre-binding של כל המודולים, ומפעיל את מערכת ה-hot-reload שמבוססת על file-system events ולא על polling (חסכוני ב-CPU ב-80% בהשוואה ל-webpack).</p>\n<figure><img src=\"/blog-images/6acef7853c6fb53e529b.webp\" alt=\"סצנה של לוח מחוונים אנליטיקלי תוסס עם גרפים מבריקים, גרף קו עולה, נורת ламפ זוהרת שמסמלת טיפים, וקוד קוד קודצ כמו פ קרל, ללא טקסט קריא.\" loading=\"lazy\" decoding=\"async\" width=\"1200\" height=\"675\"/><figcaption>סצנה של לוח מחוונים אנליטיקלי תוסס עם גרפים מבריקים, גרף קו עולה, נורת ламפ זוהרת שמסמלת טיפים, וקוד קוד קודצ כמו פ קרל, ללא טקסט קריא.</figcaption></figure>\n<h2 id=\"s-11\">רכיבים מודרניים — Responsive ב-2026</h2><h3 id=\"s-12\">קומפוננטת React עם TypeScript ו-claw hooks</h3><p>claw-code מספק סט hooks מיוחדים שמתחברים למנוע הניתוח שלו בזמן אמת. הנה דוגמה לקומפוננטת Dashboard חכמה:</p>\n<pre><code class=\"language-tsx\">import { useClawState, useClawOptimization } from &#39;@claw-code/react&#39;;\nimport { useEffect, useState } from &#39;react&#39;;\n\ninterface Metric {\n  id: string;\n  value: number;\n  timestamp: Date;\n}\n\nexport const SmartDashboard: React.FC = () =&gt; {\n  const [metrics, setMetrics] = useClawState(&#39;metrics&#39;, []);\n  const { optimize, report } = useClawOptimization();\n  \n  useEffect(() =&gt; {\n    // מנוע claw מנתח את הקוד ומציע אופטימיזציות בזמן אמת\n    const analysis = optimize({\n      target: &#39;render-cycle&#39;,\n      aggressive: true\n    });\n    \n    if (analysis.suggestions.length &gt; 0) {\n      console.warn(&#39;Claw suggestions:&#39;, analysis.suggestions);\n    }\n  }, [metrics]);\n\n  return (\n    \n      \n        ביצועים בזמן אמת\n        {report.efficiency}% יעילות\n      \n      \n        {metrics.map(m =&gt; (\n          \n            {m.value}\n            {m.timestamp.toLocaleTimeString(&#39;he-IL&#39;)}\n          \n        ))}\n      \n    \n  );\n};\n</code></pre>\n<h3 id=\"s-13\">CSS עם Grid מותאם ל-claw architecture</h3><p>claw-code מגיע עם מערכת CSS מובנית שמנצלת את container queries ו-subgrid:</p>\n<pre><code class=\"language-css\">/* claw-grid.css - Generated by claw-code v2.1 */\n\n.claw-dashboard {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  gap: clamp(1rem, 2vw, 2rem);\n  container-type: inline-size;\n  container-name: dashboard;\n}\n\n.metrics-grid {\n  display: subgrid;\n  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));\n  gap: inherit;\n}\n\n.metric-card {\n  background: oklch(98% 0.02 250);\n  border-radius: 0.75rem;\n  padding: 1.5rem;\n  transition: transform 0.2s ease-out;\n  /* claw-code מוסיף כאן אוטומטית will-change אם מזהה אנימציות */\n}\n\n@container dashboard (max-width: 600px) {\n  .metric-card {\n    padding: 1rem;\n    font-size: 0.875rem;\n  }\n}\n\n.claw-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  background: linear-gradient(135deg, oklch(60% 0.2 250), oklch(50% 0.25 270));\n  color: white;\n  padding: 0.25rem 0.75rem;\n  border-radius: 9999px;\n  font-variation-settings: &#39;wght&#39; 600;\n}\n\n/* מצב dark mode אוטומטי */\n@media (prefers-color-scheme: dark) {\n  .metric-card {\n    background: oklch(20% 0.02 250);\n    color: oklch(95% 0 0);\n  }\n}\n</code></pre>\n<h3 id=\"s-14\">דוגמת שימוש מלאה</h3><pre><code class=\"language-tsx\">// App.tsx\nimport { StrictMode } from &#39;react&#39;;\nimport { createRoot } from &#39;react-dom/client&#39;;\nimport { ClawProvider } from &#39;@claw-code/react&#39;;\nimport { SmartDashboard } from &#39;./components/SmartDashboard&#39;;\n\nconst container = document.getElementById(&#39;root&#39;);\nif (!container) throw new Error(&#39;Root element not found&#39;);\n\nconst root = createRoot(container);\n\nroot.render(\n  \n    \n      \n    \n  \n);\n</code></pre>\n",
+ "toc": [
+  {
+   "id": "s-1",
+   "depth": 2,
+   "text": "מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?"
   },
-  "wordCount": 1334
+  {
+   "id": "s-2",
+   "depth": 2,
+   "text": "סטטיסטיקות וביצועים — המספרים לא משקרים"
+  },
+  {
+   "id": "s-3",
+   "depth": 2,
+   "text": "דרישות מקדימות"
+  },
+  {
+   "id": "s-4",
+   "depth": 2,
+   "text": "התקנה שלב אחר שלב — 2026 Edition"
+  },
+  {
+   "id": "s-5",
+   "depth": 3,
+   "text": "שלב 1: התקנת Rust ו-Cargo"
+  },
+  {
+   "id": "s-6",
+   "depth": 3,
+   "text": "שלב 2: התקנת oh-my-codex"
+  },
+  {
+   "id": "s-7",
+   "depth": 3,
+   "text": "שלב 3: התקנת claw-code עצמו"
+  },
+  {
+   "id": "s-8",
+   "depth": 3,
+   "text": "שלב 4: אתחול פרויקט ראשון"
+  },
+  {
+   "id": "s-9",
+   "depth": 3,
+   "text": "שלב 5: קינפוג oh-my-codex integration"
+  },
+  {
+   "id": "s-10",
+   "depth": 3,
+   "text": "שלב 6: הרצה ראשונה והפעלת watch mode"
+  },
+  {
+   "id": "s-11",
+   "depth": 2,
+   "text": "רכיבים מודרניים — Responsive ב-2026"
+  },
+  {
+   "id": "s-12",
+   "depth": 3,
+   "text": "קומפוננטת React עם TypeScript ו-claw hooks"
+  },
+  {
+   "id": "s-13",
+   "depth": 3,
+   "text": "CSS עם Grid מותאם ל-claw architecture"
+  },
+  {
+   "id": "s-14",
+   "depth": 3,
+   "text": "דוגמת שימוש מלאה"
+  }
+ ],
+ "excerpt": "מדריך מקיף ומפורט על claw-code — The repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100K stars ⭐. Join Discord: https://discord.gg/5TUQKqFWd Built in Rust using oh-my-codex.. כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
+ "date": "2026-05-07T17:36:43.657+00:00",
+ "updated": "2026-10-14T03:31:17.285+00:00",
+ "readTime": "6 דקות קריאה",
+ "wordCount": 1294,
+ "tags": [
+  "Rust",
+  "GitHub",
+  "מדריך",
+  "2026",
+  "Open Source"
+ ],
+ "category": "פיתוח Rust",
+ "imageUrl": "/blog-images/6acef77eccab77a6d17d.webp",
+ "heroAlt": "חדר עבודה מודרני עם מתכנת יושב על שולחן אלגנטי, מסך גדול מציג אייקון מאגר מואר עם כוכבים מנצנצים, ספל קפה, וגלויה הולוגרפית של גלגל שיניים בצבע חלודה מרחפת מעל המקלדת, באור כחול רך.",
+ "ogImage": "https://elyasharlabs.com/blog-images/6acef77ed1cf87ee5aa1.jpg",
+ "ogDescription": "מדריך מקיף ומפורט על claw-code — The repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100K stars ⭐. Join Discord: https://discord.gg/5TUQKqFWd Built in Rust using oh-my-codex.. כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
+ "keywords": [
+  "Rust",
+  "GitHub",
+  "מדריך",
+  "2026",
+  "Open Source",
+  "claw-code",
+  "התקנה",
+  "מדריך בעברית",
+  "פיתוח Rust"
+ ],
+ "canonicalUrl": "https://elyasharlabs.com/blog/claw-code-1778175403657/",
+ "author": "יוסף אלישר",
+ "sources": [
+  "https://github.com/ultraworkers/claw-code"
+ ],
+ "jsonLd": {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "מה זה claw-code ולמה 190,551 מפתחים כבר משתמשים בו?",
+  "description": "מדריך מקיף ומפורט על claw-code — The repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100K stars ⭐. Join Discord: https://discord.gg/5TUQKqFWd Built in Rust using oh-my-codex.. כולל התקנה שלב אחר שלב, רכיבים רספונסיביים, אנליטיקס, טיפים נדירים, ודוגמאות קוד אמיתיות.",
+  "image": [
+   "https://elyasharlabs.com/blog-images/6acef77ed1cf87ee5aa1.jpg",
+   "https://elyasharlabs.com/blog-images/6acef77eccab77a6d17d.webp"
+  ],
+  "datePublished": "2026-05-07T17:36:43.657+00:00",
+  "dateModified": "2026-10-14T03:31:17.285+00:00",
+  "inLanguage": "he-IL",
+  "wordCount": 1294,
+  "mainEntityOfPage": "https://elyasharlabs.com/blog/claw-code-1778175403657/",
+  "keywords": "Rust, GitHub, מדריך, 2026, Open Source",
+  "author": {
+   "@type": "Person",
+   "name": "יוסף אלישר",
+   "url": "https://elyasharlabs.com"
+  },
+  "publisher": {
+   "@type": "Organization",
+   "name": "ElyasharLabs",
+   "url": "https://elyasharlabs.com"
+  }
+ }
 }

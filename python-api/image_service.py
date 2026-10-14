@@ -32,11 +32,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Configuration from environment
-OLLAMA_API_KEY = os.getenv("OLLAMA_API_KEY", "92da2aca5f5c44509b40a428ce9bba14")
+OLLAMA_API_KEY = os.environ["OLLAMA_API_KEY"]
 OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "https://api.ollama.ai/v1")
 IMAGES_DIR = Path(__file__).parent.parent / "public" / "images" / "generated"
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "7908824633:AAHryoTh2q0ieiavwyYU44oNMiwMAtF-A9o")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "6457374757")
+TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
+TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
 # Ensure images directory exists
 IMAGES_DIR.mkdir(parents=True, exist_ok=True)
